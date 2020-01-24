@@ -1,0 +1,360 @@
+:root {
+    --sidenav_bgclr : #112456;
+    --sidenav_fgclr : #dedede;
+    --sidenav_btnclr : #eaeaea;
+
+    --clr1: #FB9A4B;
+    --clr2: #AA5507;
+    --clr3: #9DF39F;
+    --clr4: #FFE862;
+    --clr5: #96DD3B;
+    --clr6: #41A83E;
+    --clr7: #FF6262;
+    --clr8: #CC3333;
+    --clr9: #A074C4;
+    --clr10: #E37933;
+    --clr11: #CCA700;
+    --clr12: #5D3E3E;
+    --clr13: #FB9A4B;
+    --clr14: #FEC758;
+    --clr15: #CD8D8D;
+    --clr16: #F8F8F8;
+    --clr17: #390000;
+    --clr18: #EC0D1E;
+    --clr19: #330000;
+}
+
+#topbar {
+    padding-top: 0;
+    width: 100%;
+    height: 100px;
+    background-color: var(--clr8);
+    position: fixed;
+
+}
+
+#topsidebar {
+    padding: 0;
+    width: 100%;
+    height: 100px;
+    background-color: var(--clr7);
+
+}
+
+#sidemenu {
+    height: 100%; /* 100% Full-height */
+    width: 20%; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color:var(--clr19); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 0; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    
+}
+
+.sidebtn {
+    background-color : var(--cl11);
+    position: absolute;
+    left : 10px;
+    top : 10px;
+    width : 30px;
+    z-index: 1;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: var(--clr16);
+    font-size: 20px;
+    font-weight: 10px;
+    color: var(--clr16);
+    border-style: solid;
+    transition: 0.2s;
+}
+
+.sidebtn:hover {
+    color: var(--clr18);
+}
+
+/* The navigation menu links */
+.tab {
+    margin: 10px;
+    padding : 10px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 20px;
+    color: var(--clr16);
+    display: block;
+    transition: 0.3s;
+    background-color: var(--clr12);
+    border-radius: 10px;
+    transition : 0.2s;
+}
+.tab:hover {
+    background-color: var(--clr8);
+}
+
+.page {
+    position : absolute;
+    right : 0;
+    top : 100px;
+    width : 100%;
+    overflow-x: hidden;
+    width : 0;
+    transition : 0.5s;
+    text-align: center;
+    
+}
+
+#page3 iframe {
+    margin:auto;
+    width : 70%;
+    height : 200px;
+    right :0;
+    display: inline-block;
+}
+    
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  .accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .accordion:hover {
+    background-color: #ccc;
+  }
+  
+  /* Style the accordion panel. Note: hidden by default */
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+  }
+
+*{
+	margin:0;
+	padding:0;
+}
+
+
+body{
+	background-color:#700000;
+	color:#555555;
+
+	font-family: Arial, Helvetica, sans-serif;
+
+	font-weight:normal;
+	/* Same as above */
+
+	line-height:1.6em;
+	margin:0;
+}
+
+/*
+a{
+	text-decoration: none;
+	color:#000;
+}
+
+a:hover{
+	color:red;
+}
+
+a:active{
+	color:green;
+}
+
+a:visited{
+	
+}
+
+.container{
+	width:80%;
+	margin:auto;
+}
+
+.button{
+	background-color:#333;
+	color:#fff;
+	padding:10px 15px;
+	border:none;
+}
+
+.button:hover{
+	background:red;
+	color:#fff;
+}
+
+.clr{
+	clear:both;
+}
+
+.box-1{
+	background-color:#333;
+	color:#fff;
+
+	border-right:5px red solid;
+	border-left:5px red solid;
+	border-top:5px red solid;
+	border-bottom:5px red solid;
+	border-width:3px;
+	border-bottom-width:10px;
+	border-top-style:dotted;
+
+	border: 5px red solid;
+
+	padding-top:20px;
+	padding-bottom:20px;
+	padding-right:20px;
+	padding-left:20px;
+
+	padding:20px;
+
+	margin-top:20px;
+	margin:20px 0;
+}
+
+.box-1 h1{
+	font-family:Tahoma;
+	font-weight:800;
+	font-style:italic;
+	text-decoration:underline;
+	text-transform:uppercase;
+	letter-spacing: 0.2em;
+	word-spacing: 1em;
+}
+
+.box-2{
+	border:3px dotted #ccc;
+	padding:20px;
+	margin:20px 0;
+}
+
+.categories{
+	border:1px #ccc solid;
+	padding:10px;
+	border-radius:15px;
+}
+
+.categories h2{
+	text-align:center;
+}
+
+.categories ul{
+	padding:0;
+	padding-left:20px;
+	list-style:square;
+	list-style:none;
+}
+
+.categories li{
+	padding-bottom:6px;
+	border-bottom:dotted 1px #333;
+	list-style-image: url('../images/check.png');
+}
+
+.my-form{
+	padding:20px;
+}
+
+.my-form .form-group{
+	padding-bottom:15px;
+}
+
+.my-form label{
+	display:block;
+}
+
+.my-form input[type="text"], .my-form textarea{
+	padding:8px;
+	width:100%;
+}
+
+.block{
+	float:left;
+	width:33.3%;
+	border:1px solid #ccc;
+	padding:10px;
+	box-sizing:border-box;
+}
+
+#main-block{
+	float:left;
+	width:70%;
+	padding:15px;
+	box-sizing: border-box;
+}
+
+#sidebar{
+	float:right;
+	width:30%;
+	background-color:#333;
+	color:#fff;
+	padding:15px;
+	box-sizing: border-box;
+}
+
+.p-box{
+	width:800px;
+	height:500px;
+	border:1px solid #000;
+	margin-top:30px;
+	position:relative;
+	background-image:url('../images/bgimage.jpg');
+	background-repeat: no-repeat;
+	background-position:100px 200px;
+	background-position:center top;
+}
+
+.p-box h1{
+	position:absolute;
+	top:100px;
+	left:200px;
+}
+
+.p-box h2{
+	position:absolute;
+	bottom:40px;
+	right:100px;
+}
+
+.fix-me{
+	position:fixed;
+	top:400px;
+}
+
+.my-list li:first-child{
+	background: red;
+}
+
+.my-list li:last-child{
+	background: blue;
+}
+
+.my-list li:nth-child(5){
+	background: yellow;
+}
+
+.my-list li:nth-child(even){
+	background: grey;
+}*/

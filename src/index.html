@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800">
+    <!--link rel="stylesheet" href="/css/bootstrap.css"-->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/scripts.js"></script>
+</head>
+<body>
+    <div id="topbar">
+        <input class="sidebtn" type="button" value="O" onclick="openNav()">
+    </div>
+    <div id="sidemenu">
+        <div id=topsidebar>
+            <input class="sidebtn" type="button" value="X" onclick="closeNav()">
+        </div>
+        <div>
+            <div class="tab" onclick="loadpage(1)">
+                <label>Calendrier</label>
+            </div>
+            <div class="tab" onclick="loadpage(2)">
+                <label>Liste</label>
+            </div>
+            <div class="tab" onclick="loadpage(3)">
+                <label>Menus</label>
+            </div>
+            <div class="tab" onclick="loadpage(4)">
+                <label>Soirées</label>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div id="page1" class="page">
+            <!-- see https://stackoverflow.com/questions/2269192/use-a-custom-url-to-get-a-customized-printable-version-of-google-calendar-->
+            <iframe src="https://calendar.google.com/calendar/embed?src=kvv954969fmevuq0bi8v7dvf1k%40group.calendar.google.com&ctz=Europe%2FParis&mode=week&wkst=1&pbw=false&pda=true&dates=20200209%2F20200221"
+                style="border: 0" 
+                width="800" 
+                height="600" 
+                frameborder="0" 
+                scrolling="no" 
+            ></iframe>
+        </div>
+        <div id="page2" class="page">
+            
+            <button id="section1" class="accordion" onclick="togglesection(1)">Section 1</button>
+            <div class="panel">
+            <p>Lorem ipsum...</p>
+            </div>
+
+            <button id="section2" class="accordion">Section 2</button>
+            <div class="panel">
+            <p>Lorem ipsum...</p>
+            </div>
+
+            <button id="section3" class="accordion">Section 3</button>
+            <div class="panel">
+            <p>Lorem ipsum...</p>
+</div>
+        </div>
+        <div id="page3" class="page">
+            <iframe id="menu1" src="https://drive.google.com/file/d/1ihRD-XWdBVaN0b82L40sFwNH6da1BuFQ/preview">Error</iframe>
+            <iframe id="menu2" src="https://drive.google.com/file/d/1ihRD-XWdBVaN0b82L40sFwNH6da1BuFQ/preview">Error</iframe>
+            <iframe id="menu3" src="https://drive.google.com/file/d/1ihRD-XWdBVaN0b82L40sFwNH6da1BuFQ/preview"></iframe>
+        </div>
+        <div id="page4" class="page">
+            <embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://example.com/the.pdf" 
+            width="500" 
+            height="375">
+        </div>
+    </div>
+</body>
+$(document).on("click", ".class", init());
+</html>
+
