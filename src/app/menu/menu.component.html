@@ -1,0 +1,46 @@
+<style>
+    div {
+        position: fixed;
+        left : 0;
+        width: 100%;
+        transition:0.5s;
+        z-index:3;
+    }
+
+    img {
+        border-style: solid;
+        border-radius: 50%;
+        border-width: 3px;
+        border-color: #FEFEFE;
+        object-fit: cover;
+        position: absolute;
+    }
+    #title {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #FEFEFE;
+        font-size: x-large;
+        position: absolute;
+    }
+    #lore {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #FEFEFE;
+        font-size: medium;
+        position: absolute;
+    }
+</style>
+<div [style.top]="getTop()" [style.background-color]="getClr()" [style.height]="getH()" (click)="onSwitch()">
+    
+    <label id="title" 
+        [style.top]="getNthOfH(0.25)" 
+        [style.left]="getNthOfH(1)">
+        {{title}}
+    </label>
+    <label id="lore"
+        [style.bottom]="getNthOfH(0.25)" 
+        [style.left]="getNthOfH(1)">{{lore}}</label>
+    <img src="../../assets/img/IMG_4299.JPG"
+        [style.height]="getNthOfH(0.5)"
+        [style.width]="getNthOfH(0.5)"
+        [style.top]="getNthOfH(0.25)"
+        [style.left]="getNthOfH(0.25)">
+</div>

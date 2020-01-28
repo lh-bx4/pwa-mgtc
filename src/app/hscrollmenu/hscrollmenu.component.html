@@ -1,0 +1,32 @@
+<style>
+div {
+    width: 100%;
+	overflow-x: auto;
+    white-space: nowrap;
+    position: fixed;
+    top : 30px;
+    height: 90px;
+    background-color: blue;
+    font-size: 20px;
+
+}
+th {
+    height: 20px;
+    padding: 10px 10px;
+    background-color: burlywood;
+    border-radius: 2px;
+}
+th:hover {
+    background-color: chartreuse;
+}
+</style>
+<div>
+    <tr class="table table-condensed table-hover">
+        <th (click)="onShowHome()">Home 2</th>
+        <th (click)="onShowCalendar()">Calendrier</th>
+        <th (click)="onShowMenus()">Menus</th>
+        <th (click)="onShowEvent()">Soirées</th>
+        <th (click)="onShowDocuments()">Flyer</th>
+        <th (click)="onShowCrew()">Liste</th>
+    </tr>
+</div>

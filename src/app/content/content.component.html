@@ -1,0 +1,118 @@
+<style>
+    #page {
+        position:fixed;
+        bottom:0;
+        left:0;
+        overflow: auto;
+        width: 100%;
+        z-index:1;
+        background-color: #FFFFFFDD;
+        text-align:center;
+    }
+    div div {
+        position:absolute;
+        margin:auto;
+        text-align:center;
+        width:100%;
+        display:none;
+        transition:0.2s;
+    }
+    #agenda {
+        position: relative;
+        top:10px;
+        border: solid;
+        border-radius: 10px;
+        border-color: #FEFEFE;
+        border-width: 3px;
+        padding:0;
+        
+    }
+    .accordion {
+        position:relative;
+        width:95%;
+
+    } 
+    .accordion div {
+        position:relative;
+        width:95%;
+        top:0px;
+        height: 10px;
+        display:block;
+    }
+    #Party embed {
+        position: relative;
+        border:solid;
+        margin: 20px 10px;
+        border-radius: 10px;
+        border-color: #FEFEFE;
+        border-width: 3px;
+        width:95%;
+        overflow-y: hidden;
+    }
+
+    #Party object {
+        position: relative;
+        border:solid;
+        margin: 20px 10px;
+        border-radius: 10px;
+        border-color: #FEFEFE;
+        border-width: 3px;
+        width:95%;
+        overflow-y: hidden;
+    }
+    
+</style>
+<div id="page" [style.background-color]="clr" [style.height]="getH()">
+    
+    <div id="Team" [style.display]="getDisplay(0)">
+        <p>
+            paragraphe liste
+        </p>
+        <img id="photolist" src="">
+        <ul>
+            <li *ngFor="let i of members;">
+                <p>{{i.lore}}</p>
+                <img id="i.name" src="i.src">
+            </li>
+        </ul>
+    </div>
+
+    <div id="Prog" [style.display]="getDisplay(1)">
+        <ul>
+            <li *ngFor="let i of sections;">
+                <button id=i.id class="accordion" (click)="togglesection(i.id)">{{i.lore}}</button>
+                <div class="sectiontop">
+                    <p>{{i.lore}}</p>
+                    <!--video pole-->
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="Campaign" [style.display]="getDisplay(2)">
+        <p>test</p>
+        <ul>
+            <li *ngFor="let i of sections;">
+                <a class="btn btn-danger" href="../../assets/files/campaign/menu_1.pdf" download>Flyer Jour 1</a>
+            </li>
+        </ul>
+        <a class="btn btn-danger" href="../../assets/files/campaign/menu_1.pdf" download>Flyer Jour 1</a>      
+        <!--flyers!-->
+    </div>
+
+    <div id="Party" [style.display]="getDisplay(3)">
+        <embed src="../../assets/files/party/party_soft_1.pdf" [style.height]="posterH()" type='application/pdf'/>
+        <embed src="../../assets/files/party/party_hard_1.pdf" [style.height]="posterH()" type='application/pdf'/>
+        <embed src="../../assets/files/party/party_soft_2.pdf" [style.height]="posterH()" type='application/pdf'/>
+        <embed src="../../assets/files/party/party_hard_2.pdf" [style.height]="posterH()" type='application/pdf'/>
+    </div>
+
+    <div id="Agenda" [style.display]="getDisplay(4)">
+        <!-- see https://stackoverflow.com/questions/2269192/use-a-custom-url-to-get-a-customized-printable-version-of-google-calendar-->
+        <iframe id="agenda" src="https://calendar.google.com/calendar/embed?src=kvv954969fmevuq0bi8v7dvf1k%40group.calendar.google.com&ctz=Europe%2FParis&mode=week&wkst=7&pbw=false&pda=true&dates=20200210%2F20200221" 
+            width="95%" 
+            height="800px" 
+            frameborder="4" 
+            scrolling="no"></iframe>
+    </div>
+</div>
