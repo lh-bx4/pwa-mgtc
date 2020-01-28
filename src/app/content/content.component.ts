@@ -28,6 +28,10 @@ export class ContentComponent implements OnInit {
 
   ];
 
+  public isSelected(n):boolean {
+    return n==this.current;
+  }
+
   @HostListener('window:resize', ['$event']) Size(event?) {
     this.H=Math.floor(4*(window.innerHeight-30)/5);
     this.W=window.innerWidth;

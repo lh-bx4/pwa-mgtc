@@ -27,8 +27,36 @@
         font-size: medium;
         position: absolute;
     }
+
+    .hideUnselected {
+        animation: hideUnselected 0.5s ease 0s 1 forwards;
+    }
+    @keyframes hideUnselected {
+        from {
+            left:0;
+        }
+        to {
+            left:100%;
+        }
+    }
+
+    .upSelected {
+        animation: upSelected 0.5s ease 0.5s 1 forwards;
+    }
+    @keyframes upSelected {
+        from {
+            top:"{getTop()}";
+        }
+        to {
+            top:30px;
+        }
+    }
+
+
 </style>
-<div [style.top]="getTop()" [style.background-color]="getClr()" [style.height]="getH()" (click)="onSwitch()">
+<div  
+    [ngClass]="{upSelected : istoSelect(), hideUnselected : istoHide(), downSelected : istoDeselect(), showUnselected : !istoShow()}"  
+    [style.top]="getTop()" [style.background-color]="getClr()" [style.height]="getH()" (click)="onSwitch()">
     
     <label id="title" 
         [style.top]="getNthOfH(0.25)" 
