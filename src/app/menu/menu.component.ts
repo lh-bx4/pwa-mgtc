@@ -10,8 +10,6 @@ export class MenuComponent implements OnInit {
 
   public static instances:Array<MenuComponent>=[];
   private static clrs = ["#A62C23","#8C251D","#661B15","#4d1410","#330D0B"]; 
-  private static selectinon = [false,false,false,false,false];
-  private static animated = [false,false,false,false,false];
   private scrH:number;
   
   @HostListener('window:resize', ['$event']) Size(event?) {
@@ -26,7 +24,6 @@ export class MenuComponent implements OnInit {
   @Input() private title:string;
   private H:number;
   private clr:any;
-  private isSelected:boolean = false;
 
   public getH() {
     return this.H.toString()+"px";
@@ -44,70 +41,41 @@ export class MenuComponent implements OnInit {
     return MenuComponent.clrs[this.menuid]+"DD";
   }
 
-  public getState() {
-    return this.isSelected;
-  }
-
-  static selectedmenu:number=-1;
-  static selected:boolean=false;
-  public selected:boolean=false;
+  private static fillmode:string = "backwards";
+  getfill() {return MenuComponent.fillmode;}
   
   public onSwitch() {
-    MenuComponent.selectinon[this.menuid]=!MenuComponent.selectinon[this.menuid];
-
-    
-    MenuComponent.selected=!MenuComponent.selected;
-    MenuComponent.selectedmenu = MenuComponent.selected ? this.menuid : -1;
-    this.selected=true;
-    console.log(MenuComponent.selectedmenu+":"+MenuComponent.selected);
+    MenuComponent.fillmode=(MenuComponent.fillmode=="backwards") ? "forwards" : "backwards";
   }
 
-  public istoHide():boolean {
-    var ret = !MenuComponent.selectinon[this.menuid];
-    if (ret) MenuComponent.animated[this.menuid]=true;
-    //var x:boolean = MenuComponent.selected && (this.menuid!=MenuComponent.selectedmenu);
-    //console.log(MenuComponent.selected+":"+this.menuid+"?"+MenuComponent.selectedmenu+" "+ x)
-    //return x;
+  /*public istoHide():boolean {
+    var ret = MenuComponent.selectedmenu>=0 && this.menuid!=MenuComponent.selectedmenu && !this.animated;
+    this.animated=true;
     return ret;
   }
 
   public istoSelect():boolean {
-    var ret = MenuComponent.selectinon[this.menuid];
-    if (ret) MenuComponent.animated[this.menuid]=true;
+    var ret = MenuComponent.selectedmenu>=0 && this.menuid==MenuComponent.selectedmenu && !this.animated;
+    this.animated=true;
     return ret;
-    
-    var x:boolean = MenuComponent.selected && (this.menuid==MenuComponent.selectedmenu);
-    //console.log(MenuComponent.selected+":"+this.menuid+"?"+MenuComponent.selectedmenu+" "+ x)
-    return x;
   }
 
-  public istoShow():boolean {
-    var ret = MenuComponent.animated[this.menuid] && !MenuComponent.selectinon[this.menuid];
-    if (ret) MenuComponent.animated[this.menuid]=false;
-    //var x:boolean = MenuComponent.selected && (this.menuid!=MenuComponent.selectedmenu);
-    //console.log(MenuComponent.selected+":"+this.menuid+"?"+MenuComponent.selectedmenu+" "+ x)
-    //return x;
-    return ret;
-
-    var x:boolean = !MenuComponent.selected && (this.menuid!=MenuComponent.selectedmenu);
-    //console.log(MenuComponent.selected+":"+this.menuid+"?"+MenuComponent.selectedmenu+" "+ x)
-    return x;
+/*  public istoShow():boolean {
+    var ret = MenuComponent.selectedmenu==-1 && this.animated;
+    this.animated=false;
+    return false;
   }
 
   public istoDeselect():boolean {
-    var ret = MenuComponent.animated[this.menuid] && MenuComponent.selectinon[this.menuid];
-    if (ret) MenuComponent.animated[this.menuid]=false;
-    MenuComponent.selectinon[this.menuid]=false;
-    return ret;
-    var x:boolean = !MenuComponent.selected && (this.menuid==MenuComponent.selectedmenu);
-    //console.log(MenuComponent.selected+":"+this.menuid+"?"+MenuComponent.selectedmenu+" "+ x)
-    return x;
-  }
+    var ret = MenuComponent.selectedmenu==-1 && this.animated;
+    this.animated=false;
+    return false;
+  }*/
 
-  getAnimationDirection():number {
+  /*getAnimationDirection():number {
     return MenuComponent.selected ? -1 : 1;
   }
-  /*public onSwitch() {
+  public onSwitch() {
     var el:HTMLCollectionOf<Element> = document.getElementsByTagName("app-menu");
     var inline:string,inhigh:string;
     this.isSelected=!this.isSelected;
