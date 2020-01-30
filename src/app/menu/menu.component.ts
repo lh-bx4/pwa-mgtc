@@ -10,6 +10,8 @@ export class MenuComponent implements OnInit {
 
   public static instances:Array<MenuComponent>=[];
   private static clrs = ["#A62C23","#8C251D","#661B15","#4d1410","#330D0B"]; 
+  private static selectinon = [false,false,false,false,false];
+  private static animated = [false,false,false,false,false];
   private scrH:number;
   
   @HostListener('window:resize', ['$event']) Size(event?) {
@@ -24,6 +26,7 @@ export class MenuComponent implements OnInit {
   @Input() private title:string;
   private H:number;
   private clr:any;
+  private isSelected:boolean = false;
 
   public getH() {
     return this.H.toString()+"px";
@@ -41,66 +44,35 @@ export class MenuComponent implements OnInit {
     return MenuComponent.clrs[this.menuid]+"DD";
   }
 
-  private static fillmode:string = "backwards";
-  getfill() {return MenuComponent.fillmode;}
-  
-  public onSwitch() {
-    MenuComponent.fillmode=(MenuComponent.fillmode=="backwards") ? "forwards" : "backwards";
+  public getState() {
+    return this.isSelected;
   }
 
-  /*public istoHide():boolean {
-    var ret = MenuComponent.selectedmenu>=0 && this.menuid!=MenuComponent.selectedmenu && !this.animated;
-    this.animated=true;
-    return ret;
+  static selectedmenu:number=-1;
+  static selected:boolean=false;
+  
+  public onSwitch() {
+    MenuComponent.selected=!MenuComponent.selected;
+    MenuComponent.selectedmenu = MenuComponent.selected ? this.menuid : -1;
+
+    MenuComponent.selected ? 
+      this.cntnt.onShow(this.menuid, MenuComponent.clrs[this.menuid]) : 
+      this.cntnt.onHide(this.menuid, MenuComponent.clrs[this.menuid]);
+    //console.log(MenuComponent.selectedmenu+":"+MenuComponent.selected);
+  }
+
+  public istoHide():boolean {
+    var x:boolean = MenuComponent.selected && (this.menuid!=MenuComponent.selectedmenu);
+    //console.log(MenuComponent.selected+":"+this.menuid+"?"+MenuComponent.selectedmenu+" "+ x)
+    return x;
   }
 
   public istoSelect():boolean {
-    var ret = MenuComponent.selectedmenu>=0 && this.menuid==MenuComponent.selectedmenu && !this.animated;
-    this.animated=true;
-    return ret;
+   
+    var x:boolean = MenuComponent.selected && (this.menuid==MenuComponent.selectedmenu);
+    //console.log(MenuComponent.selected+":"+this.menuid+"?"+MenuComponent.selectedmenu+" "+ x)
+    return x;
   }
-
-/*  public istoShow():boolean {
-    var ret = MenuComponent.selectedmenu==-1 && this.animated;
-    this.animated=false;
-    return false;
-  }
-
-  public istoDeselect():boolean {
-    var ret = MenuComponent.selectedmenu==-1 && this.animated;
-    this.animated=false;
-    return false;
-  }*/
-
-  /*getAnimationDirection():number {
-    return MenuComponent.selected ? -1 : 1;
-  }
-  public onSwitch() {
-    var el:HTMLCollectionOf<Element> = document.getElementsByTagName("app-menu");
-    var inline:string,inhigh:string;
-    this.isSelected=!this.isSelected;
-    if (this.isSelected) {
-      for(var i=0; i<el.length; i++) {
-        if (i!=this.menuid) (<HTMLElement>el[i].firstElementChild).style.left="100%";
-      }
-      setTimeout(() => {
-        (<HTMLElement>el[this.menuid].firstElementChild).style.top="30px";
-      }, 500);
-    } else {
-      (<HTMLElement>el[this.menuid].firstElementChild).style.top=this.getTop();
-      setTimeout(() => {
-        for(var i=0; i<el.length; i++) {
-          if (i!=this.menuid) (<HTMLElement>el[i].firstElementChild).style.left="0";
-        }
-      }, 500);
-    }
-    if (this.isSelected) {
-      this.cntnt.onShow(this.menuid, MenuComponent.clrs[this.menuid]);
-    } else {
-      this.cntnt.onHide(this.menuid, MenuComponent.clrs[this.menuid])
-    }
-    
-  }*/
 
   public setCntnt(c:ContentComponent) {
     this.cntnt=c;

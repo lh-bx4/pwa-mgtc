@@ -28,22 +28,8 @@
         position: absolute;
     }
 
-    .initialClass.animationClass-add {
-        animation: 1s ng-class-animation;
-    }
-
-/* This is the animationd definition, this class is added when the animationClass is about to be appended to element classes*/
-.initialClass.animationClass-remove  {
-    -webkit-animation: 1s ng-class-animation reverse;
-    -moz-animation: 1s ng-class-animation reverse;
-    -ms-animation: 1s ng-class-animation reverse;
-    -o-animation: 1s ng-class-animation reverse;
-    animation: 1s ng-class-animation reverse;
-}
-
     .hideUnselected {
-        animation: hideUnselected 0.5s ease 0s 1 backwards;
-        animation-fill-mode: "{getfill()}";
+        animation: hideUnselected 0.5s ease 0s 1 forwards;
     }
     @keyframes hideUnselected {
         from {
@@ -66,11 +52,9 @@
         }
     }
 
-
 </style>
-<!--, downSelected : istoDeselect(), showUnselected : istoShow()}"-->
 <div  
-    class="hideUnselected"
+    [ngClass]="{upSelected : istoSelect(), hideUnselected : istoHide()}"  
     [style.top]="getTop()" [style.background-color]="getClr()" [style.height]="getH()" (click)="onSwitch()">
     
     <label id="title" 

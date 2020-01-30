@@ -9,6 +9,8 @@ import { PageComponent } from './page/page.component';
 import { ContentComponent } from './content/content.component';
 import { MenuComponent } from './menu/menu.component';
 import { VarService } from '../service/var.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   //AppComponent,
@@ -23,7 +25,8 @@ import { VarService } from '../service/var.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     VarService

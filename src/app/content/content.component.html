@@ -8,14 +8,14 @@
         z-index:1;
         background-color: #FFFFFFDD;
         text-align:center;
+        display: block;
     }
     div div {
         position:absolute;
         margin:auto;
         text-align:center;
         width:100%;
-        display:none;
-        transition:0.2s;
+        display:"block";
     }
     #agenda {
         position: relative;
@@ -60,11 +60,48 @@
         width:95%;
         overflow-y: hidden;
     }
+
+    .hidep {
+        animation: hidep 0.5s ease 0s 1 forwards;
+    }
+    @keyframes hidep {
+        from {
+            height:"30px";
+            background-color: "clr";
+        }
+        to {
+            background-color: #FEFEFE;
+            height:0;
+        }
+    }
+    .showp {
+        animation: showp 0.5s ease 0.5s 1 1 forwards;
+    }
+    @keyframes showp {
+        from {
+            background-color: #FEFEFE;
+            height:0;
+        }
+        to {
+            background-color: "{clr}";
+            height:"{getH()}";
+        }
+    }
+
+    .hidec {
+        display: none;
+    }
+
+    .showc {
+        display: block;
+    }
+
     
 </style>
-<div id="page" [style.background-color]="clr" [style.height]="getH()">
+<div id="page" [ngClass]="{showp : getAnimation('show'), hidep : getAnimation('hide')}"
+[style.background-color]="clr" [style.height]="getH()">
     
-    <div id="Team" [style.display]="getDisplay(0)">
+    <div [ngClass]="{showc : getDisplay(0), hidec : !getDisplay(0)}"  id="Team">
         <p>
             paragraphe liste
         </p>
@@ -77,7 +114,7 @@
         </ul>
     </div>
 
-    <div id="Prog" [style.display]="getDisplay(1)">
+    <div id="Prog" [ngClass]="{showc : getDisplay(1), hidec : !getDisplay(1)}">
         <ul>
             <li *ngFor="let i of sections;">
                 <button id=i.id class="accordion" (click)="togglesection(i.id)">{{i.lore}}</button>
@@ -89,7 +126,7 @@
         </ul>
     </div>
 
-    <div id="Campaign" [style.display]="getDisplay(2)">
+    <div id="Campaign" [ngClass]="{showc : getDisplay(2), hidec : !getDisplay(2)}">
         <p>test</p>
         <ul>
             <li *ngFor="let i of sections;">
@@ -100,14 +137,14 @@
         <!--flyers!-->
     </div>
 
-    <div id="Party" [style.display]="getDisplay(3)">
+    <div id="Party" [ngClass]="{showc : getDisplay(3), hidec : !getDisplay(3)}">
         <embed src="../../assets/files/party/party_soft_1.pdf" [style.height]="posterH()" type='application/pdf'/>
         <embed src="../../assets/files/party/party_hard_1.pdf" [style.height]="posterH()" type='application/pdf'/>
         <embed src="../../assets/files/party/party_soft_2.pdf" [style.height]="posterH()" type='application/pdf'/>
         <embed src="../../assets/files/party/party_hard_2.pdf" [style.height]="posterH()" type='application/pdf'/>
     </div>
 
-    <div id="Agenda" [style.display]="getDisplay(4)">
+    <div id="Agenda" [ngClass]="{showc : getDisplay(4), hidec : !getDisplay(4)}">
         <!-- see https://stackoverflow.com/questions/2269192/use-a-custom-url-to-get-a-customized-printable-version-of-google-calendar-->
         <iframe id="agenda" src="https://calendar.google.com/calendar/embed?src=kvv954969fmevuq0bi8v7dvf1k%40group.calendar.google.com&ctz=Europe%2FParis&mode=week&wkst=7&pbw=false&pda=true&dates=20200210%2F20200221" 
             width="95%" 

@@ -32,6 +32,22 @@ export class ContentComponent implements OnInit {
     return n==this.current;
   }
 
+
+  animate:boolean=false;
+  getAnimation(s:string):boolean {
+    var b1,b2:boolean;
+    b1=(s=="show") !== (this.current ==-1);
+    if (this.animate) {
+      this.animate=false;
+      return b1;
+    } else {
+      return false;
+    }
+
+
+
+  }
+
   @HostListener('window:resize', ['$event']) Size(event?) {
     this.H=Math.floor(4*(window.innerHeight-30)/5);
     this.W=window.innerWidth;
@@ -39,12 +55,9 @@ export class ContentComponent implements OnInit {
     console.log("content::"+this.H+":"+this.W);
   }
 
-  getDisplay(n:number) {
-    if (n==this.current) {
-      return this.state;
-    } else {
-      return "none";
-    }
+  getDisplay(n:number):boolean {
+    console.log("getDisplay"+n+":"+this.current);
+    return (n==this.current);
   }
 
   private getH() {
@@ -61,15 +74,15 @@ export class ContentComponent implements OnInit {
   public onShow(n:number, c:string) {
     this.clr=c+"DD";
     this.current=n;
-    setTimeout(() => {
-        this.state="block";
-    }, 1000);
+    this.animate=true;
+    console.log(n+"onShow");
   }
 
   public onHide(n:number, c:string) {
     this.clr=c+"DD";
-    this.current=n;
-    this.state="none";
+    this.current=-1;
+    this.animate=true;
+    console.log(n+"onShow");
   }
 
   togglesection2(name:string) {
