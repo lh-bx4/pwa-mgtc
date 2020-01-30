@@ -8,11 +8,11 @@ import { ContentComponent } from '../content/content.component';
 })
 export class MenuComponent implements OnInit {
 
-  public static instances:Array<MenuComponent>=[];
-  private static clrs = ["#A62C23","#8C251D","#661B15","#4d1410","#330D0B"]; 
-  private static selectinon = [false,false,false,false,false];
-  private static animated = [false,false,false,false,false];
-  private scrH:number;
+  static instances:Array<MenuComponent>=[];
+  static clrs = ["#A62C23","#8C251D","#661B15","#4d1410","#330D0B"]; 
+  selectinon = [false,false,false,false,false];
+  animated = [false,false,false,false,false];
+  scrH:number;
   
   @HostListener('window:resize', ['$event']) Size(event?) {
     this.scrH=window.innerHeight;
@@ -20,13 +20,13 @@ export class MenuComponent implements OnInit {
     console.log(this.scrH);
   }
 
-  private cntnt:ContentComponent;
-  @Input() private readonly menuid:any;
-  @Input() private lore:string;
-  @Input() private title:string;
-  private H:number;
-  private clr:any;
-  private isSelected:boolean = false;
+   cntnt:ContentComponent;
+  @Input()  readonly menuid:any;
+  @Input()  lore:string;
+  @Input()  title:string;
+   H:number;
+   clr:any;
+   isSelected:boolean = false;
 
   public getH() {
     return this.H.toString()+"px";

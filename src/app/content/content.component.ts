@@ -8,17 +8,17 @@ import { MenuComponent } from "../menu/menu.component";
 })
 export class ContentComponent implements OnInit {
 
-  public pH:string;
-  public teste:string = "50px";
-  private H:number;
-  private W:number;
-  private clr:any;
-  private state:string="hidden";
-  private current=-1;
-  private members = [
+  pH:string;
+  teste:string = "50px";
+  H:number;
+  W:number;
+  clr:any;
+  state:string="hidden";
+  current=-1;
+  members = [
     {name:"me", lore:"lorem ipsum", src:"./"}
   ];
-  private sections = [
+  sections = [
     {
       id:0, title:"Pole Soirées", lore:"soiréeees"
     },
@@ -60,7 +60,7 @@ export class ContentComponent implements OnInit {
     return (n==this.current);
   }
 
-  private getH() {
+  public getH() {
     return this.H+"px";
   }
   private getW() {

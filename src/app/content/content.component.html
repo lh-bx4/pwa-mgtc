@@ -117,7 +117,7 @@
     <div id="Prog" [ngClass]="{showc : getDisplay(1), hidec : !getDisplay(1)}">
         <ul>
             <li *ngFor="let i of sections;">
-                <button id=i.id class="accordion" (click)="togglesection(i.id)">{{i.lore}}</button>
+                <button id=i.id class="accordion" (click)="toggleGsection(i.id)">{{i.lore}}</button>
                 <div class="sectiontop">
                     <p>{{i.lore}}</p>
                     <!--video pole-->
