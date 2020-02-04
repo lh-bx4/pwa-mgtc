@@ -1,9 +1,10 @@
 {
-  "name": "Magell'Antic",
-  "short_name": "Magell'Antic - Votez rouge <3",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "L'application des Magell'Antic",
+  "short_name": "MGTC - Votez rouge <3",
+  "theme_color": "#bf1f1f",
+  "background_color": "#fefefe",
   "display": "standalone",
+  "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
   "icons": [

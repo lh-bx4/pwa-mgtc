@@ -9,14 +9,13 @@ import { MenuComponent } from "../menu/menu.component";
 export class ContentComponent implements OnInit {
 
   pH:string;
-  teste:string = "50px";
   H:number;
   W:number;
   clr:any;
   state:string="hidden";
   current=-1;
   members = [
-    {name:"me", lore:"lorem ipsum", src:"./"}
+    {name:"Louis HOAREAU - XV", lore:"Jamais 2 sans 3 fois 5", src:'../../assets/files/team/polo/POLO_nom.JPG'}
   ];
   sections = [
     {
@@ -35,16 +34,22 @@ export class ContentComponent implements OnInit {
 
   animate:boolean=false;
   getAnimation(s:string):boolean {
-    var b1,b2:boolean;
-    b1=(s=="show") !== (this.current ==-1);
+    var x = this.current==-1;
+    var y = s!="show" ? x : !x;
+    console.log(s+":"+this.current+">"+y);
+    return y;
+    console.log("getAnimation1 "+this.animate+":"+this.current);
+    var b2,ret:boolean;
+    var b1:number;
+    b1= (s=="show" ? 1 : 0) ^ (this.current==-1 ? 1 : 0);
     if (this.animate) {
       this.animate=false;
-      return b1;
+      ret = b1!=0;
     } else {
-      return false;
+      ret= false;
     }
-
-
+    console.log("getAnimation2 "+ret+":"+s);
+    return ret;
 
   }
 
@@ -56,7 +61,7 @@ export class ContentComponent implements OnInit {
   }
 
   getDisplay(n:number):boolean {
-    console.log("getDisplay"+n+":"+this.current);
+    //console.log("getDisplay"+n+":"+this.current);
     return (n==this.current);
   }
 

@@ -1,115 +1,16 @@
-<style>
-    #page {
-        position:fixed;
-        bottom:0;
-        left:0;
-        overflow: auto;
-        width: 100%;
-        z-index:1;
-        background-color: #FFFFFFDD;
-        text-align:center;
-        display: block;
-    }
-    div div {
-        position:absolute;
-        margin:auto;
-        text-align:center;
-        width:100%;
-        display:"block";
-    }
-    #agenda {
-        position: relative;
-        top:10px;
-        border: solid;
-        border-radius: 10px;
-        border-color: #FEFEFE;
-        border-width: 3px;
-        padding:0;
-        
-    }
-    .accordion {
-        position:relative;
-        width:95%;
-
-    } 
-    .accordion div {
-        position:relative;
-        width:95%;
-        top:0px;
-        height: 10px;
-        display:block;
-    }
-    #Party embed {
-        position: relative;
-        border:solid;
-        margin: 20px 10px;
-        border-radius: 10px;
-        border-color: #FEFEFE;
-        border-width: 3px;
-        width:95%;
-        overflow-y: hidden;
-    }
-
-    #Party object {
-        position: relative;
-        border:solid;
-        margin: 20px 10px;
-        border-radius: 10px;
-        border-color: #FEFEFE;
-        border-width: 3px;
-        width:95%;
-        overflow-y: hidden;
-    }
-
-    .hidep {
-        animation: hidep 0.5s ease 0s 1 forwards;
-    }
-    @keyframes hidep {
-        from {
-            height:"30px";
-            background-color: "clr";
-        }
-        to {
-            background-color: #FEFEFE;
-            height:0;
-        }
-    }
-    .showp {
-        animation: showp 0.5s ease 0.5s 1 1 forwards;
-    }
-    @keyframes showp {
-        from {
-            background-color: #FEFEFE;
-            height:0;
-        }
-        to {
-            background-color: "{clr}";
-            height:"{getH()}";
-        }
-    }
-
-    .hidec {
-        display: none;
-    }
-
-    .showc {
-        display: block;
-    }
-
-    
-</style>
+<!--corriger l'animation-->
 <div id="page" [ngClass]="{showp : getAnimation('show'), hidep : getAnimation('hide')}"
 [style.background-color]="clr" [style.height]="getH()">
-    
     <div [ngClass]="{showc : getDisplay(0), hidec : !getDisplay(0)}"  id="Team">
-        <p>
-            paragraphe liste
-        </p>
-        <img id="photolist" src="">
+        <label>
+            paragraphe liste Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut reiciendis corrupti, exercitationem ducimus repellat voluptates consequatur modi cupiditate dolorem est harum dolor voluptatem saepe. Vero eaque eligendi voluptatum fugit quam!
+        </label>
+        <img id="photolist" src="../../assets/files/team/LIST.JPG"> 
         <ul>
             <li *ngFor="let i of members;">
-                <p>{{i.lore}}</p>
-                <img id="i.name" src="i.src">
+                <img class="pdp" [id]="i.name" [src]="i.src">
+                <label class="name">{{i.name}}</label>
+                <label class="lore">{{i.lore}}</label>
             </li>
         </ul>
     </div>

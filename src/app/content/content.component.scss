@@ -1,0 +1,224 @@
+#page {
+    
+    position:fixed;
+    bottom:0;
+    left:0;
+    overflow: auto;
+    width: 100%;
+    z-index:1;
+    background-color: #FFFFFFDD;
+    text-align:center;
+    display: block;
+
+    div {
+        position:absolute;
+        margin:auto;
+        text-align:center;
+        width:100%;
+        display:"block";
+        
+        * {
+            box-shadow: 0px 5px 5px #222222;
+            margin: 10px auto;
+            border-radius: 10px;
+            width: 95%;
+        }
+
+        label {
+            width:95%;
+            border-radius: 3px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #FEFEFE;
+            font-size: medium;
+        }
+        
+        img {
+            border: solid;
+            border-radius: 10px;
+            border-color: #FEFEFE;
+            border-width: 3px;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+            box-shadow: none;
+        }
+    }
+
+    
+
+    #Team {
+        label {}
+        #photolist {}
+        ul {
+            li {
+                height: 150px;
+                * {
+                    box-shadow: none;
+                    display: inline-block;
+                    object-fit: cover;
+                }
+                label {
+                    position: static;
+                    border: 0;
+                    border-radius: 0;
+                    width:50%;
+                    left : 200px;
+                }
+                .pdp {
+                    position: relative;
+                    margin:25px;
+                    width:100px;
+                    height: 100px;
+                    border: solid;
+                    border-color: #FEFEFE;
+                    border-radius: 50%;
+                    float: left;
+                }
+                .lore {
+                    bottom : 50px;
+                }
+                .name {
+                    top : 50px;
+                    font-size: x-large;
+                }
+            }
+        }
+    }
+    #Prog {
+        ul {
+            li {
+                button {
+
+                }
+                .sectiontop {
+                    p {}
+                    .videopole {}
+                }
+            }
+        }
+    }
+    #Campaign {
+        p {}
+        ul {}
+            li {
+                a {}
+            }
+        a {}  
+        .flyer {}
+    }
+
+    #Party {
+        embed {
+            position: relative;
+            border:solid;
+            margin: 20px 10px;
+            border-radius: 10px;
+            border-color: #FEFEFE;
+            border-width: 3px;
+            width:95%;
+            overflow-y: hidden;
+        }
+    }
+
+    #Agenda {
+        #agenda {
+            position: relative;
+            top:10px;
+            border: solid;
+            border-radius: 10px;
+            border-color: #FEFEFE;
+            border-width: 3px;
+            padding:0;
+        }
+    }
+}
+
+
+.accordion {
+    position:relative;
+    width:95%;
+
+} 
+.accordion div {
+    position:relative;
+    width:95%;
+    top:0px;
+    height: 10px;
+    display:block;
+}
+
+
+
+
+
+
+
+.hidep {
+    animation: hidep 2s ease 0s 1 forwards;
+}
+@keyframes hidep {
+    from {
+        height:100%;
+        background-color: "clr";
+    }
+    to {
+        background-color: #FEFEFE;
+        height:0;
+    }
+}
+.showp {
+    animation: showp 0.5s ease 0.5s 1 1 forwards;
+}
+@keyframes showp {
+    from {
+        background-color: #FEFEFE;
+        height:0;
+    }
+    to {
+        background-color: "clr";
+        height:30px;
+    }
+}
+
+.hidec {
+    display: none;
+}
+
+.showc {
+    display: block;
+}
+
+#other {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    float: left;
+    position: static;
+    cursor: crosshair;
+    top: 20px;
+    left: 20px;
+    padding: 1px;
+    border: 2px solid rgba(255,0,0,1);
+    -webkit-border-radius: 11px / 17px;
+    border-radius: 11px / 17px;
+    font: normal 19px/1 "Courier New", Courier, monospace;
+    color: rgba(255,255,255,1);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: url("https://enjoycss.com/bg-img/default/3_6.png");
+    background-repeat: repeat-x;
+    background-position: 109% 93%;
+    -webkit-background-origin: padding-box;
+    background-origin: padding-box;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-background-size: contain;
+    background-size: contain;
+    background: -webkit-linear-gradient(-119.05460409907715deg, rgba(248,80,50,1) 0, rgba(229,39,39,1) 100%);
+    background: -moz-linear-gradient(209.05460409907715deg, rgba(248,80,50,1) 0, rgba(229,39,39,1) 100%);
+    background: linear-gradient(209.05460409907715deg, rgba(248,80,50,1) 0, rgba(229,39,39,1) 100%);
+    background-position: 50% 50%;
+}
