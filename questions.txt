@@ -1,0 +1,37 @@
+TOUS
+---Calendrier
+>*Il faudrait le remplir...
+---Soirées
+Peut on faire un lien de billeterie pumpkin pro pour les soirées ?
+Que pensez vous du système antispoil ?
+Changer le nom de la catégorie et ajouter les activitées ? (ex Arcery Tag...)
+--- Campagne
+Flyer : Antispoil ? Tous d'un coup ?
+*Musique : video
+Musique : faire un petit document téléchargeable avec les paroles? 
+*Ajouter coré
+---Programme
+>Vos descriptions !!! (Celles d'ophé)
+*Livret complet
+*Bon fichiers (photos video)
+---Team
+>Paragraphe de liste !
+>Réduire la qualité de la photo
+*Ajouter photos perso
+*Regler les problème de responsivité
+>Vos descriptions perso !!!
+
+---Service Worker
+*Notifications
+*Paramètres ?
+*Online indicator
+*AntiSpoil
+
+---Liens
+.Fonctionnel
+
+
+------Forum
+Quelqu'un veut le faire, c'est pas trop compliqué ?
+
+

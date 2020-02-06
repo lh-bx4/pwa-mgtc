@@ -1,7 +1,6 @@
 <style>
 #touchbox {
     width: 100%;
-    height: 30px;
     position: fixed;
     background-color: #F44336;
     top : 0;
@@ -19,21 +18,147 @@
     z-index: 7;
     overflow: hidden;
     transition:0.5s;
+    border-bottom-left-radius:  ;
 }
 
 #contentbox p{
     color:white;
 }
+
+#onlincon {
+    position: fixed;
+    padding: 0px;
+    top:5px;
+    right:5px;
+    border-radius: 0;
+    z-index: 9;
+    display: inline-block;
+    background-color: #efefef;
+    height: 15px;
+    width: 15px;
+}
+.online {
+    animation: online 1s ease-out 2s infinite alternate;
+}
+@keyframes online {
+    0% {
+        height: 5px;
+        width: 15px;
+        margin:auto;
+        border-radius: 0;
+        background-color: #efefef;
+    }
+    50% {
+        margin:auto;
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        background-color: #efefef;
+    }
+    100% {
+        margin:auto;
+        height: 5px;
+        width: 15px;
+        border-radius: 0;
+        background-color: #efefef;
+    }
+}
+
+#touchbox img {
+    height: 20px;
+    margin:5px 3px;
+    
+}
+#params {
+}
+#links {
+
+}
+#messages {
+}
+#contentbox div,li {
+    width:95%;
+    margin:auto;
+    border-style: solid;
+    border-color: #efefef;
+    border-width: 1px;
+    margin:5px 0px;
+}
+#contentbox li {
+    width:100%;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    box-shadow: none;     
+}
+label {
+    width:100%;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #efefef;
+    text-align: center;
+    font-weight: 10px;
+}
+.Links img {
+    width:20%;
+    margin: auto;
+}
+#contentbox div {
+    margin:5px auto;
+}
+
+.click {
+    border: #efefef;
+    border: solid;
+    animation: click 0.5s ease 0s 1 forwards;
+}
+@keyframes click {
+    0% {
+        
+        border-width: 0;
+    }
+    50% {
+        width: 50%;
+        border-width: 3px;
+    }
+    100% {
+        border-width: 0;
+    }
+    
+}
 </style>
 <div >
-    <div id="touchbox" (click)="onDropdown()">
-        <p>Infos</p>
+    <div id="touchbox" (click)="onDropdown()" [ngStyle]="{'height':NTH}">
+        <img id="params" src="../../assets/icons/ui_param.svg">
+        <img id="links" src="../../assets/icons/ui_forum.png">
+        <div id="onlincon" [ngClass]="{'online':'true'}"></div>
+        <img id="messages" src="../../assets/icons/ui_mess.svg">
+        
     </div>
-    <div id="contentbox" [style.height]="css_height">
-        <div class="notification">
-            <p>Notif A</p>
+    <div id="contentbox" [ngStyle]="{'height':paneH, 'border-bottom-left-radius':paneBR, 'border-bottom-right-radius':paneBR}">
+        <div class="Messages">
+            <label>Notifications</label>
+            <ul>
+                <li *ngFor="let i of getmessages();" (click)="onNotify(i.id)" [ngStyle]="{'display':howDisplay(i.id)}">
+                    <label class="mess_title">{{i.title}}</label>
+                    <label class="mess_lore">{{i.lore}}</label>
+                </li>
+            </ul>
         </div>
-
+        <div class="Params">
+            <label>Paramètres</label>
+            <p>No parameter yet</p>
+        </div>
+        <div class="Links">
+            <label>Voir aussi</label>
+            <img src="../../assets/icons/ui_forum.png" (click)="redirect(0)">
+            <img src="../../assets/icons/ui_fb.png" (click)="redirect(1)">
+            <img src="../../assets/icons/ui_insta.png" (click)="redirect(2)">
+            <img src="../../assets/icons/ui_snap.png" (click)="redirect(3)">
+            <!--bleus:-->
+            <img src="../../assets/icons/ui_secret.png" (click)="redirect(4)">
+        </div>
     </div>
 </div>
 

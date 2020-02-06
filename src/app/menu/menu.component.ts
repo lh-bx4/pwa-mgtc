@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, HostListener} from '@angular/core';
 import { ContentComponent } from '../content/content.component';
+import { VarService } from 'src/service/var.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,83 +9,38 @@ import { ContentComponent } from '../content/content.component';
 })
 export class MenuComponent implements OnInit {
 
-  static instances:Array<MenuComponent>=[];
-  static clrs = ["#A62C23","#8C251D","#661B15","#4d1410","#330D0B"]; 
-  selectinon = [false,false,false,false,false];
-  animated = [false,false,false,false,false];
-  scrH:number;
-  
-  @HostListener('window:resize', ['$event']) Size(event?) {
-    this.scrH=window.innerHeight;
-    this.H=Math.floor((this.scrH-30)/5);
-    console.log(this.scrH);
-  }
+  private static icons = ["team", "prog", "camp", "party", "agenda"];
 
-   cntnt:ContentComponent;
-  @Input()  readonly menuid:any;
+  private static cntnt:ContentComponent;
+  static AppendContent(c:ContentComponent) { MenuComponent.cntnt = c; } 
+  
+  public get MH() { return VarService.MH+"px"; }
+  @Input()  readonly menuid:number;
   @Input()  lore:string;
   @Input()  title:string;
-   H:number;
-   clr:any;
-   isSelected:boolean = false;
+  clr:any;
+  isSelected:boolean = false;
+  static OneIsSelected:boolean = false; 
 
-  public getH() {
-    return this.H.toString()+"px";
-  }
-
-  public getTop() {
-    return (30+this.menuid*this.H).toString()+"px";
-  }
-
-  public getNthOfH(n) {
-    return Math.round(this.H*n).toString()+"px";
-  }
-
-  public getClr() {
-    return MenuComponent.clrs[this.menuid]+"DD";
-  }
-
-  public getState() {
-    return this.isSelected;
-  }
-
-  static selectedmenu:number=-1;
-  static selected:boolean=false;
+  getIcon() { return "../../assets/icons/ui_"+MenuComponent.icons[this.menuid]+".png"; }
   
+  public getClr() {
+    return VarService.getMCLR(this.menuid,"DD");
+    //return VarService.gradient(VarService.getMCLR(this.menuid, "DD"),VarService.getMCLR(Number(this.menuid)+1, "DD"),"135deg");
+  }
+
+  getTop() { return (this.isSelected ? VarService.NTH : VarService.MH*this.menuid+VarService.NTH)+"px"; }
+  getLeft() { return MenuComponent.OneIsSelected && !this.isSelected ? "100%" : "0";  }
+  getTransitionDelay() { return this.isSelected ? "0.5s" : "0s"; }
+  public getNthOfH(n) { return Math.round(VarService.MH*n).toString()+"px"; }
+
   public onSwitch() {
-    MenuComponent.selected=!MenuComponent.selected;
-    MenuComponent.selectedmenu = MenuComponent.selected ? this.menuid : -1;
-
-    MenuComponent.selected ? 
-      this.cntnt.onShow(this.menuid, MenuComponent.clrs[this.menuid]) : 
-      this.cntnt.onHide(this.menuid, MenuComponent.clrs[this.menuid]);
-    //console.log(MenuComponent.selectedmenu+":"+MenuComponent.selected);
+    MenuComponent.OneIsSelected=!MenuComponent.OneIsSelected;
+    this.isSelected=!this.isSelected;
+    MenuComponent.cntnt.onPrepare(MenuComponent.OneIsSelected, this.isSelected ? this.menuid : -1, VarService.getMCLR(this.menuid, "DD"));
   }
 
-  public istoHide():boolean {
-    var x:boolean = MenuComponent.selected && (this.menuid!=MenuComponent.selectedmenu);
-    //console.log(MenuComponent.selected+":"+this.menuid+"?"+MenuComponent.selectedmenu+" "+ x)
-    return x;
-  }
-
-  public istoSelect():boolean {
-   
-    var x:boolean = MenuComponent.selected && (this.menuid==MenuComponent.selectedmenu);
-    //console.log(MenuComponent.selected+":"+this.menuid+"?"+MenuComponent.selectedmenu+" "+ x)
-    return x;
-  }
-
-  public setCntnt(c:ContentComponent) {
-    this.cntnt=c;
-  }
-
-  constructor() { 
-    this.Size();
-    
-  }
-
-  ngOnInit() {
-    MenuComponent.instances.push(this);
-  }
-
+  constructor() { }
+  ngOnInit() { }
+  ngOnAfter() { }
 }

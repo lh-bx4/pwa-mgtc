@@ -9,6 +9,7 @@
     background-color: #FFFFFFDD;
     text-align:center;
     display: block;
+    transition:0.5s;
 
     div {
         position:absolute;
@@ -28,14 +29,14 @@
             width:95%;
             border-radius: 3px;
             font-family: Arial, Helvetica, sans-serif;
-            color: #FEFEFE;
+            color: #efefef;
             font-size: medium;
         }
         
         img {
             border: solid;
             border-radius: 10px;
-            border-color: #FEFEFE;
+            border-color: #efefef;
             border-width: 3px;
         }
         
@@ -72,7 +73,7 @@
                     width:100px;
                     height: 100px;
                     border: solid;
-                    border-color: #FEFEFE;
+                    border-color: #efefef;
                     border-radius: 50%;
                     float: left;
                 }
@@ -88,25 +89,102 @@
     }
     #Prog {
         ul {
+            * {
+                margin:0 auto;
+                border-radius: 0;
+                border: 0;
+                position: relative;
+                top:0;
+            }
+            
             li {
+                
+                * {
+                    widows: 100%;
+                    box-shadow: none;
+                }
                 button {
-
+                    width:100%;
                 }
                 .sectiontop {
-                    p {}
+                    transition: 1s;
+                    height: 0;
+                    overflow: hidden;
+                    p {
+                        display: block;
+                        color: #efefef;
+                        margin: 0;
+                        padding: 5px;
+                        top:0px;
+                        text-justify: inter-word;
+                    }
                     .videopole {}
+                }
+
+                .hides {
+                    height: 0;
+                }
+                
+                .shows {
+                    height:auto;
                 }
             }
         }
     }
     #Campaign {
-        p {}
-        ul {}
-            li {
-                a {}
+        label {
+            ul {
+                width:95%;
+                margin:auto;
+                li {
+                    width:100%;
+                    margin: 10px 0;
+                    box-shadow: none;
+                    .btn {
+                        margin:0;
+                    }
+                }
             }
-        a {}  
-        .flyer {}
+        }
+        
+        ul {
+            * {
+                margin:0 auto;
+                border-radius: 0;
+                border: 0;
+                position: relative;
+                top:0;
+            }
+            
+            li {
+                
+                * {
+                    widows: 100%;
+                    box-shadow: none;
+                }
+                button {
+                    width:100%;
+                }
+                .lyrics {
+                    transition: 1s;
+                    height: 0;
+                    overflow: hidden;
+                    p {
+                        margin: 0;
+                        padding: 5px;
+                        top:0px;
+                    }
+                }
+
+                .hides {
+                    height: 0;
+                }
+                
+                .shows {
+                    height:auto;
+                }
+            }
+        }
     }
 
     #Party {
@@ -115,7 +193,7 @@
             border:solid;
             margin: 20px 10px;
             border-radius: 10px;
-            border-color: #FEFEFE;
+            border-color: #efefef;
             border-width: 3px;
             width:95%;
             overflow-y: hidden;
@@ -128,7 +206,7 @@
             top:10px;
             border: solid;
             border-radius: 10px;
-            border-color: #FEFEFE;
+            border-color: #efefef;
             border-width: 3px;
             padding:0;
         }
@@ -149,46 +227,16 @@
     display:block;
 }
 
-
-
-
-
-
-
-.hidep {
-    animation: hidep 2s ease 0s 1 forwards;
-}
-@keyframes hidep {
-    from {
-        height:100%;
-        background-color: "clr";
-    }
-    to {
-        background-color: #FEFEFE;
-        height:0;
-    }
-}
-.showp {
-    animation: showp 0.5s ease 0.5s 1 1 forwards;
-}
-@keyframes showp {
-    from {
-        background-color: #FEFEFE;
-        height:0;
-    }
-    to {
-        background-color: "clr";
-        height:30px;
-    }
-}
-
 .hidec {
-    display: none;
+    transition-delay: 0.5s;
+    visibility: hidden;
+}
+.showc {
+    transition-delay: 0s;
+    visibility: visible;
 }
 
-.showc {
-    display: block;
-}
+
 
 #other {
     display: inline-block;

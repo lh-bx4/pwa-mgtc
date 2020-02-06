@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { VarService } from 'src/service/var.service';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
+  public vs:VarService= new VarService();
   
-  
-  
+  constructor() {
 
+  }
 }

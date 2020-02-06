@@ -1,3 +1,8 @@
+<!--
+    icons..
+    couleurs dégradées
+-->
+
 <style>
     div {
         position: fixed;
@@ -5,57 +10,34 @@
         width: 100%;
         transition:0.5s;
         z-index:3;
+        background-position: 50% 50%;
     }
 
     img {
         border-style: solid;
         border-radius: 50%;
         border-width: 3px;
-        border-color: #FEFEFE;
+        border-color: #efefef;
         object-fit: cover;
         position: absolute;
     }
     #title {
         font-family: Arial, Helvetica, sans-serif;
-        color: #FEFEFE;
+        color: #efefef;
         font-size: x-large;
         position: absolute;
     }
     #lore {
         font-family: Arial, Helvetica, sans-serif;
-        color: #FEFEFE;
+        color: #efefef;
         font-size: medium;
         position: absolute;
     }
-
-    .hideUnselected {
-        animation: hideUnselected 0.5s ease 0s 1 forwards;
-    }
-    @keyframes hideUnselected {
-        from {
-            left:0;
-        }
-        to {
-            left:100%;
-        }
-    }
-
-    .upSelected {
-        animation: upSelected 0.5s ease 0.5s 1 forwards;
-    }
-    @keyframes upSelected {
-        from {
-            top:"{getTop()}";
-        }
-        to {
-            top:30px;
-        }
-    }
-
 </style>
 <div  
-    [ngClass]="{upSelected : istoSelect(), hideUnselected : istoHide()}"  
-    [style.top]="getTop()" [style.background-color]="getClr()" [style.height]="getH()" (click)="onSwitch()">
+    (click)="onSwitch()"
+    [ngStyle]="{'background':getClr(), 'top':getTop(), 'left':getLeft(), 'transition-delay':getTransitionDelay(), 'height':MH}" 
+    >
     
     <label id="title" 
         [style.top]="getNthOfH(0.25)" 
@@ -65,7 +47,7 @@
     <label id="lore"
         [style.bottom]="getNthOfH(0.25)" 
         [style.left]="getNthOfH(1)">{{lore}}</label>
-    <img src="../../assets/img/IMG_4299.JPG"
+    <img [src]="getIcon()"
         [style.height]="getNthOfH(0.5)"
         [style.width]="getNthOfH(0.5)"
         [style.top]="getNthOfH(0.25)"

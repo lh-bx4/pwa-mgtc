@@ -1,13 +1,20 @@
-<!--corriger l'animation-->
-<div id="page" [ngClass]="{showp : getAnimation('show'), hidep : getAnimation('hide')}"
-[style.background-color]="clr" [style.height]="getH()">
-    <div [ngClass]="{showc : getDisplay(0), hidec : !getDisplay(0)}"  id="Team">
+<!--
+    corriger l'animation
+    regler les probleme de mise en page due aux différentes tailles d'écran
+    optimiser le scss
+    ajouter les vrais fichiers
+    ajouter les videos de poles
+    regler les couleur en dégradé
+    (icon / svg anim)
+-->
+<div id="page" [ngStyle] = "{'background-color':clr, 'height':getH(), 'transition-delay':getTransitionDelay(), 'border-top-left-radius':pageBR, 'border-top-right-radius':pageBR}">
+    <div [ngClass]="howShow(0)"  id="Team">
         <label>
             paragraphe liste Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut reiciendis corrupti, exercitationem ducimus repellat voluptates consequatur modi cupiditate dolorem est harum dolor voluptatem saepe. Vero eaque eligendi voluptatum fugit quam!
         </label>
         <img id="photolist" src="../../assets/files/team/LIST.JPG"> 
         <ul>
-            <li *ngFor="let i of members;">
+            <li *ngFor="let i of MEMBERS;">
                 <img class="pdp" [id]="i.name" [src]="i.src">
                 <label class="name">{{i.name}}</label>
                 <label class="lore">{{i.lore}}</label>
@@ -15,37 +22,49 @@
         </ul>
     </div>
 
-    <div id="Prog" [ngClass]="{showc : getDisplay(1), hidec : !getDisplay(1)}">
+    <div id="Prog" [ngClass]="howShow(1)">
         <ul>
-            <li *ngFor="let i of sections;">
-                <button id=i.id class="accordion" (click)="toggleGsection(i.id)">{{i.lore}}</button>
-                <div class="sectiontop">
+            <li *ngFor="let i of SECTIONS;">
+                <button id=i.id class="accordion" (click)="toggleSection(i.id)">{{i.title}}</button>
+                <div class="sectiontop" [ngClass]="{shows : i.state, hides : !i.state}">
+                    <img [src]="i.photo">
                     <p>{{i.lore}}</p>
-                    <!--video pole-->
+                    <video width="100%" height="auto" controls>
+                        <source [src]="i.video" type="video/mp4">
+                        <img src="../../assets/icons/ui_err.png">
+                    </video> 
                 </div>
             </li>
         </ul>
     </div>
 
-    <div id="Campaign" [ngClass]="{showc : getDisplay(2), hidec : !getDisplay(2)}">
-        <p>test</p>
-        <ul>
-            <li *ngFor="let i of sections;">
-                <a class="btn btn-danger" href="../../assets/files/campaign/menu_1.pdf" download>Flyer Jour 1</a>
+    <div id="Campaign" [ngClass]="howShow(2)">
+        <label>Flyer de campagne en pdf (téléchargement)
+            <ul>
+                <li *ngFor="let i of FLYERS;">
+                    <a class="btn btn-danger" [href]="i.path" download>{{i.title}}</a>
+                </li>
+            </ul>
+        </label>
+        <ul id="#songs">
+            <li *ngFor="let i of SONGS;">
+                <button id=i.id class="accordion" (click)="toggleLyrics(i.id)">{{i.title}}</button>
+                <div class="lyrics" [ngClass]="{shows : i.state, hides : !i.state}">
+                    <p>{{i.lyrics}}</p>
+                </div>
             </li>
         </ul>
-        <a class="btn btn-danger" href="../../assets/files/campaign/menu_1.pdf" download>Flyer Jour 1</a>      
-        <!--flyers!-->
     </div>
 
-    <div id="Party" [ngClass]="{showc : getDisplay(3), hidec : !getDisplay(3)}">
-        <embed src="../../assets/files/party/party_soft_1.pdf" [style.height]="posterH()" type='application/pdf'/>
-        <embed src="../../assets/files/party/party_hard_1.pdf" [style.height]="posterH()" type='application/pdf'/>
-        <embed src="../../assets/files/party/party_soft_2.pdf" [style.height]="posterH()" type='application/pdf'/>
-        <embed src="../../assets/files/party/party_hard_2.pdf" [style.height]="posterH()" type='application/pdf'/>
+    <div id="Party" [ngClass]="howShow(3)">
+        <!--system secret-->
+        <img [src]="getPartySrc(0)" (click)="onPartyInfo(0)">
+        <img [src]="getPartySrc(1)" (click)="onPartyInfo(1)">
+        <img [src]="getPartySrc(2)" (click)="onPartyInfo(2)">
+        <img [src]="getPartySrc(3)" (click)="onPartyInfo(3)">
     </div>
 
-    <div id="Agenda" [ngClass]="{showc : getDisplay(4), hidec : !getDisplay(4)}">
+    <div id="Agenda" [ngClass]="howShow(4)">
         <!-- see https://stackoverflow.com/questions/2269192/use-a-custom-url-to-get-a-customized-printable-version-of-google-calendar-->
         <iframe id="agenda" src="https://calendar.google.com/calendar/embed?src=kvv954969fmevuq0bi8v7dvf1k%40group.calendar.google.com&ctz=Europe%2FParis&mode=week&wkst=7&pbw=false&pda=true&dates=20200210%2F20200221" 
             width="95%" 

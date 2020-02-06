@@ -1,4 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { VarService } from 'src/service/var.service';
 
 @Component({
   selector: 'app-notification-tab',
@@ -7,20 +8,41 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class NotificationTabComponent implements OnInit {
   
-  css_height:string = "0px";
+  pane:boolean = false;
+  paneH:string = "0px";
+  paneBR:string = "50%";
+
+  public get NTH() { return VarService.NTH+"px"; }
+static mess = [
+  {id:0, title:"You got a message !", lore:"Here is your first notification !! lorem ipsum dezfzneifuzieuhf", seen:false},
+  {id:1, title:"You got another message !", lore:"Here is your second notification !! lorem ipsum dezfzneifuzieuhf", seen:false},
+];
+  getmessages() {
+    return NotificationTabComponent.mess;
+  }
+
+  howDisplay(n) {
+    return NotificationTabComponent.mess[n].seen ? "none" : "block";
+  }
+  
+  onNotify(n) {
+    NotificationTabComponent.mess[n].seen=true;
+  }
   
   onDropdown() {
-    if (this.css_height==="0px") {
-      this.css_height="100%";
-    } else {
-      this.css_height="0px";
-    }
+    this.pane=!this.pane;
+    this.paneH = (this.pane ? VarService.SCRH-VarService.NTH : 0).toString()+"px";
+    this.paneBR = this.pane ? "0%" : "50%";
   }
 
-  constructor() {
+  redirect(n) {
+    var x:string = VarService.getL(n);
+    alert("Vous allez être redirigé vers "+x);
+    window.open(x);
   }
 
-  ngOnInit() {
-  }
+  constructor() { }
+
+  ngOnInit() { }
 
 }
