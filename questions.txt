@@ -3,19 +3,24 @@ TOUS
 >*Il faudrait le remplir...
 ---Soirées
 Peut on faire un lien de billeterie pumpkin pro pour les soirées ?
+soirée 1 ok, 
 Que pensez vous du système antispoil ?
-Changer le nom de la catégorie et ajouter les activitées ? (ex Arcery Tag...)
+/Changer le nom de la catégorie et ajouter les Evennement ? (ex Arcery Tag...)
+version affiche + ordre soft
+
 --- Campagne
-Flyer : Antispoil ? Tous d'un coup ?
+Flyer : Antispoil ? Tous d'un coup ? oui
 *Musique : video
-Musique : faire un petit document téléchargeable avec les paroles? 
-*Ajouter coré
+Musique : faire un petit document téléchargeable avec les paroles? com anim chanson
+*Ajouter coré oui
 ---Programme
+voir un peut com le bot
+section +, a retenir ...
 >Vos descriptions !!! (Celles d'ophé)
 *Livret complet
 *Bon fichiers (photos video)
 ---Team
->Paragraphe de liste !
+>Paragraphe de liste ! voir celui bureau dans le resumé de programme
 >Réduire la qualité de la photo
 *Ajouter photos perso
 *Regler les problème de responsivité
@@ -33,5 +38,60 @@ Musique : faire un petit document téléchargeable avec les paroles?
 
 ------Forum
 Quelqu'un veut le faire, c'est pas trop compliqué ?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://192.168.1.50:4200
+
+responsive 
+iphone6 : accordian color
+overflow x : hidden
+agenda embed trop large :/
+bloquer la hauteur si possible
+Pas d'icone sur le bureau mais ajouter à l'écran d'acceuil fonctionnel !!!
+Sponsor dans l'onglet notif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
