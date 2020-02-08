@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { VarService } from 'src/service/var.service';
+import { AutomationService } from 'src/service/automation.service';
 
 @Component({
   selector: 'app-notification-tab',
@@ -11,22 +12,16 @@ export class NotificationTabComponent implements OnInit {
   pane:boolean = false;
   paneH:string = "0px";
   paneBR:string = "50%";
+  as:AutomationService;
 
   public get NTH() { return VarService.NTH+"px"; }
-static mess = [
-  {id:0, title:"You got a message !", lore:"Here is your first notification !! lorem ipsum dezfzneifuzieuhf", seen:false},
-  {id:1, title:"You got another message !", lore:"Here is your second notification !! lorem ipsum dezfzneifuzieuhf", seen:false},
-];
+  
   getmessages() {
-    return NotificationTabComponent.mess;
-  }
-
-  howDisplay(n) {
-    return NotificationTabComponent.mess[n].seen ? "none" : "block";
+    return this.as.MatureNotifications;
   }
   
-  onNotify(n) {
-    NotificationTabComponent.mess[n].seen=true;
+  onNotify(uid:string) {
+    this.as.close(uid);
   }
   
   onDropdown() {
@@ -41,8 +36,12 @@ static mess = [
     window.open(x);
   }
 
-  constructor() { }
+  constructor() {
+    this.as = AutomationService.instance[0];
+   }
 
-  ngOnInit() { }
+  ngOnAfter() {
+    this.as.processNotifications();
+  }
 
 }

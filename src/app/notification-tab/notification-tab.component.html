@@ -18,7 +18,6 @@
     z-index: 7;
     overflow: hidden;
     transition:0.5s;
-    border-bottom-left-radius:  ;
 }
 
 #contentbox p{
@@ -140,9 +139,9 @@ label {
         <div class="Messages">
             <label>Notifications</label>
             <ul>
-                <li *ngFor="let i of getmessages();" (click)="onNotify(i.id)" [ngStyle]="{'display':howDisplay(i.id)}">
+                <li *ngFor="let i of getmessages();" (click)="onNotify(i.UID)">
                     <label class="mess_title">{{i.title}}</label>
-                    <label class="mess_lore">{{i.lore}}</label>
+                    <label class="mess_lore">{{i.body}}</label>
                 </li>
             </ul>
         </div>

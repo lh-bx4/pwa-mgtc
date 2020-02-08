@@ -1,9 +1,14 @@
-import { Injectable, HostListener} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VarService {
+
+  public static get DEVMODE() {return false}
+
+  public static get ICO() { return "../assets/icon/notif_ico.png"}
+  public static get BDG() { return "../assets/icon/notif_badge.png"}
 
   private static scrH:number;
   private static scrW:number;
@@ -85,9 +90,9 @@ export class VarService {
   ];
   static partys = [
     {name:"Soft 1", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_soft_1.png", spoil:false},
-    {name:"Hard 1", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_hard_1.png", spoil:true},
-    {name:"Soft 2", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_soft_2.png", spoil:true},
-    {name:"Hard 2", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_hard_2.png", spoil:true}
+    {name:"Hard 1", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_hard_1.png", spoil:false},
+    {name:"Soft 2", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_soft_2.png", spoil:false},
+    {name:"Hard 2", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_hard_2.png", spoil:false}
   ];
   // TODO links !
   static links = [

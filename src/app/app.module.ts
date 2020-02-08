@@ -11,6 +11,8 @@ import { MenuComponent } from './menu/menu.component';
 import { VarService } from '../service/var.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AutomationService } from '../service/automation.service';
+import { throwError } from 'rxjs';
 
 @NgModule({
   //AppComponent,
@@ -29,12 +31,41 @@ import { environment } from '../environments/environment';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
-    VarService
+    VarService,
+    AutomationService
   ],
   bootstrap: [
     AppComponent
   ]
 })
 export class AppModule {
+
+  public vs:VarService= new VarService();
+  public as:AutomationService = new AutomationService();
+  
+  hash(str:string) {
+    var hash = 0, i, chr;
+    if (str.length === 0) return hash;
+    for (i = 0; i < str.length; i++) {
+      chr   = str.charCodeAt(i);
+      hash  = ((hash << 5) - hash) + chr;
+      hash |= 0; // Convert to 32bit integer
+    }
+    return hash;
+  };
+
+  password() {
+    var code =  prompt(">");
+    if (this.hash(code)!=410387358) {
+      alert("unauthorized");
+      throw new Error("denied");
+    }
+  }
+
+  constructor() {
+    if (!VarService.DEVMODE) this.password();
+  }
+
+  
   
 }
