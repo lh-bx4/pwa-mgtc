@@ -35,7 +35,6 @@ export class AutomationService {
     
 
     clearNotifs() {
-      MySto
       this.ScheduledNotifs.forEach(el => {
         localStorage.removeItem(el.UID);
       });

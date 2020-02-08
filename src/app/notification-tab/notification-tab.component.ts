@@ -9,6 +9,7 @@ import { AutomationService } from 'src/service/automation.service';
 })
 export class NotificationTabComponent implements OnInit {
   
+  
   pane:boolean = false;
   paneH:string = "0px";
   paneBR:string = "50%";
@@ -40,7 +41,7 @@ export class NotificationTabComponent implements OnInit {
     this.as = AutomationService.instance[0];
    }
 
-  ngOnAfter() {
+  ngOnInit(): void {
     this.as.processNotifications();
   }
 
