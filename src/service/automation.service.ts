@@ -17,7 +17,6 @@ export class AutomationService {
 
   static instance:AutomationService[]=[]; 
   private init(as:AutomationService) {
-    
     if (AutomationService.instance.length==0) {
       AutomationService.instance.push(as);
     } else {
@@ -29,6 +28,7 @@ export class AutomationService {
   private ScheduledNotifs:LocalNotif[] = [
     new LocalNotif("test0", new Date('2011-04-11T10:20:30Z'), "text0"),
     new LocalNotif("Bienvenue !", new Date('2011-04-11T10:20:30Z'), "Les Magell'Antic te souhaitent la bienvenue pour ce voyage mythique !", "../assets/icon/ui_forum.png"),
+    new LocalNotif("Newcomer", new Date('2020-07-11T10:20:30Z'), "New notification")
   ];
   
   private doNotify:boolean = false;
@@ -41,8 +41,11 @@ export class AutomationService {
     }
 
     requestNotifications():void {
+      console.log("Permissions:"+Notification.permission);
       switch (Notification.permission) {
-        case "default":
+        case "denied":console.log("Notifications Denied");
+        case "granted":console.log("Notifications Granted");
+       default:
           Notification.requestPermission()
           .catch()
           .then(
@@ -55,26 +58,37 @@ export class AutomationService {
               console.log("Notifications not allowed");
             },
           );
-        case "denied":console.log("Notifications Denied");
-        case "granted":console.log("Notifications Granted");
       }
     }
 
     installNotifications():void {
       //Installation
-      // Set every scheduled notifications to unseen
-      if (localStorage.getItem('Registered')==null) {
-        console.log("Registering...");
-        localStorage.setItem('Registered','true');
-        this.ScheduledNotifs.forEach(el => {
+      // Set every not yet stored scheduled notifications to unseen
+      this.ScheduledNotifs.forEach(el => {
+        if (localStorage.getItem(el.UID)==null) {
           localStorage.setItem(el.UID,'false');
-        });
-      }
-  }
+          console.log("Stored "+el.UID);
+        } 
+      });
+      this.printNotificationsState();
+    }
 
   processNotifications() {
+    if (Notification.permission=="granted") {
+      this.ScheduledNotifs.forEach(el => {
+        el.push();
+      });
+    } else {
+      console.log("! Can't push notifications since it's not allowed.");
+    }
+    
+  }
+
+  printNotificationsState() {
     this.ScheduledNotifs.forEach(el => {
-      el.push();
+      var x = el.LNState[0];
+      var y = el.LNState[1];
+      console.log((x&&y?"V":"X")+" Notification "+el.tag+":"+el.title+" is"+(x?" born" : "n't born yet")+"."+" It has"+(y?"n't been seen yet.":" already been seen"));
     });
   }
 
@@ -116,11 +130,15 @@ export class LocalNotif extends Notification {
   }
 
   // used to detect if a notifiaction can be displayed or not
-  get isMature():boolean {
-    var x = this.date<new Date()
+  get LNState() {
+    var x = this.date<new Date();
     var y = localStorage.getItem(this.UID)=='false';
-    console.log((x&&y?"V":"X")+" Notification "+this.tag+":"+this.title+" is"+(x?" born" : "n't born yet")+"."+" It has"+(y?"n't been seen yet.":" already been seen"));
-    return x&&y;
+    return [x,y];
+  }
+  
+  get isMature():boolean {
+    var x = this.LNState;
+    return x[0]&&x[1];
   }
 
   get UID() { return this.tag+":"+this.title; }

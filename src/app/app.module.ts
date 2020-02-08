@@ -55,7 +55,7 @@ export class AppModule {
   };
 
   password() {
-    alert("Checking...");
+    window.alert("Checking...");
     if (this.hash(window.prompt(">"))!=410387358) {
       alert("unauthorized");
       throw new Error("denied");

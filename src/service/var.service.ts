@@ -1,11 +1,20 @@
-import { Injectable } from '@angular/core';
+import { Injectable, HostListener } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VarService {
 
-  public static get DEVMODE() {return false}
+  @HostListener('window:resize', ['$event'])
+  onResize(event){
+    VarService.scrH=window.innerHeight;
+    VarService.scrW=window.innerWidth;
+    VarService.ntH=(VarService.scrH-VarService.ntH)%VarService.mC+VarService.ntH;
+    VarService.mH=(VarService.scrH-VarService.ntH)/VarService.mC;
+    console.log("Resized [SCR::"+VarService.SCRW+":"+VarService.SCRH+"] [NTH::"+VarService.NTH+" | MH:"+VarService.MH+"]");
+  }
+  
+  public static get DEVMODE() {return true}
 
   public static get ICO() { return "../assets/icon/notif_ico.png"}
   public static get BDG() { return "../assets/icon/notif_badge.png"}
@@ -50,16 +59,45 @@ export class VarService {
   }
 
   private static members = [
-    {name:"Anna BUTTAZZONI - Toad", lore:"For the glory of the muSTHroom kingdom !", src:'../../assets/files/team/polo/POLO_nom.JPG'},
-    {name:"Eddy GUILLON - Kiss", lore:"T’en fais pas. Viens prendre ton bisou magique et tout ira mieux.", src:'../../assets/files/team/polo/POLO_nom.JPG'},
-    {name:"Jeremie Carpentier - D’ZY", lore:"Peach en low-cost. Carapace rouge sur Toad", src:'../../assets/files/team/polo/POLO_nom.JPG'},
-    {name:"Louise CHARLES- Wolf", lore:"Je ne sors que les soirs de pleine lune", src:'../../assets/files/team/polo/POLO_nom.JPG'},
-    {name:"Louis HOAREAU - XV", lore:"Jamais 2 sans 3 fois 5", src:'../../assets/files/team/polo/POLO_nom.JPG'},
-    {name:"Lucas JOLY - Atchoum", lore:"A mes souhaits", src:'../../assets/files/team/polo/POLO_nom.JPG'},
-    {name:"Lucas TRUPCEVIC - SPLASH", lore:"Et ça fait BIM BAM PLOUF…", src:'../../assets/files/team/polo/POLO_nom.JPG'},
-    {name:"Ophélie EVIEUX - VETO", lore:"Il faut bien que quelqun s’occupe du Minautore.", src:'../../assets/files/team/polo/POLO_nom.JPG'},
-    {name:"Tiffaine Bailly - TOUILLETTE", lore:"Ma bassine, c’est ma meilleure amie", src:'../../assets/files/team/polo/POLO_nom.JPG'},
-    {name:"_", lore:"_", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Anna Buttazzoni - Toad", lore:"For the glory of the muSTHroom kingdom !", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Eddy Guillon - Kiss", lore:"T’en fais pas. Viens prendre ton bisou magique et tout ira mieux.", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Jérémie Carpentier - D’ZY", lore:"Peach en low-cost. Carapace rouge sur Toad", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Louise Charles- Wolf", lore:"Je ne sors que les soirs de pleine lune", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Louis Hoareau - XV", lore:"Jamais 2 sans 3 fois 5", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Lucas Joly - Atchoum", lore:"A mes souhaits", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Lucas Trupcevic - SPLASH", lore:"Et ça fait BIM BAM PLOUF…", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Ophélie Evieux - VETO", lore:"Il faut bien que quelqun s’occupe du Minautore.", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Tiffaine Bailly - TOUILLETTE", lore:"Et tu chantes chantes chantes ce refrain qui te plait, et tu touilles touilles touilles c’est ta façon d’aimer", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Flavien CHASSARD - Petit Poucet", lore:"Il y a pas de bonne ou mauvaise manière de retrouver son chemin", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Mélanie BEDUER - Melanight", lore:"Qu'on me donne l'obscurité puis la lumière", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Tom SERVIERE - Denied", lore:"Toujours un plan B", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Coline PITHON - Turbo", lore:"Ca commence sur les chapeaux de roue et ça finit dans le décor", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Sophie Tardy - OLY", lore:"Oly mais pas couchée", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Jules Mehn - Panoramix", lore:"Une petite louche et c'est reparti", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Loïc Cholvy - L'élu", lore:"Gainez, vous êtes filmées", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Killian Baucor - Hawkings", lore:"Les trous noirs ça me connaît", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Jérémie Wasmer - La Croix", lore:"Il vaut mieux rester debout que de finir en croix", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Adrien Thomas - Belpech", lore:"Par dessus l'étang, soudain j'ai vu, passer les oies sauvages", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Antonin Rigau - Rolex", lore:"Désolé pour le retard. Quelqu'un a vu ma montre ?", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Lucas Nikolovski - Dior", lore:"Pas besoin d'habits pour être une perle", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Joris Garnier - Fireman", lore:"On est on Fire !", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Gaëlle Compin - Totem", lore:"Une fête est unu excès permis, voire ordonné. Freud", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Amélie Douzet - Godzilla", lore:"J'adore tout détruire ! RROOOAAAARR (ceci est l'onomatopée du cri du dinosaure)", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Laura Premet - Donatello", lore:"COWABUNGA", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Léa Gourdès - ALKALINE", lore:"Deux fois plus puissante qu'une Duracell ;)", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Valentin Barlaud - MIAOU", lore:"Qu'est-ce-qu'il dit lui ?", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Maxime Terrier - La Source", lore:"Mon surnom coule de source", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Quentin Morel - Rave", lore:"Bett -.- oli. Et plus compliqué T-los", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Tom Seger - Suez", lore:"Bandes de canals, vous allez tous crever comme des canals ! Mais ça faisait deux fois canals. Quoi ? On dit des canaux ?", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Lola Doyhenard - Slide", lore:"Championne olympique de la glisse", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Denis Kuy - Kuysto", lore:"On va vous mijoter un BDE aux petits oignons !", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Hugo François - Cata", lore:"Faut-il vraimnt une explication ?", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Alexandre Gonzalez - Applause", lore:"Il dégaine plus vite qu'il applaudit", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Julie Zinnie - Bobo", lore:"La campagne des Magell'antic, aïe ça va faire mal !", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Samuel Missioux - Patoche", lore:"...", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Baptiste Gaumont - LDM", lore:"En cape tchana baby", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Lauraline Antoine - Wesh", lore:"AALORS ! Viens pas sur mon terter !", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Sabrina Desjobert - Strampa", lore:"La cata corse débarque", src:'../../assets/files/team/polo/POLO_nom.JPG'},
   ];
   static sections = [
     {id:0, title:"Pole A&I", lore:"-", state:false},
@@ -100,7 +138,7 @@ export class VarService {
     "https://www.facebook.com",
     "https://www.instagram.com/?hl=fr",
     "http://snap",
-    "http://http://magell1nuits.fr/"
+    "http://magell1nuits.fr/"
   ]
 
 }
