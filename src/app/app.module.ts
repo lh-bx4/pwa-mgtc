@@ -43,7 +43,7 @@ export class AppModule {
   public vs:VarService= new VarService();
   public as:AutomationService = new AutomationService();
   
-  hash(str:string) {
+  hash(str:string="") {
     var hash = 0, i, chr;
     if (str.length === 0) return hash;
     for (i = 0; i < str.length; i++) {
@@ -55,8 +55,8 @@ export class AppModule {
   };
 
   password() {
-    var code =  prompt(">");
-    if (this.hash(code)!=410387358) {
+    alert("Checking...");
+    if (this.hash(window.prompt(">"))!=410387358) {
       alert("unauthorized");
       throw new Error("denied");
     }
