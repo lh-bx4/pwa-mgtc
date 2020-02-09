@@ -111,10 +111,10 @@ export class VarService {
     {id:14, title:"Pole STH", lore:"Le pôle STH est responsable de l’organisation d'événements concernants les étudiants en première année. Ses objectifs sont de faire entrer les étudiants dans l’univers de l’Insa Strasbourg, tant scolairement que extra-scolairement.",state:false},
   ];
   static flyers = [
-    {id:0, title:"Jour 1", path:"../../assets/files/campaign/flyer_1.pdf"},
-    {id:1, title:"Jour 2", path:"../../assets/files/campaign/flyer_2.pdf"},
-    {id:2, title:"Jour 3", path:"../../assets/files/campaign/flyer_3.pdf"},
-    {id:3, title:"Jour 4", path:"../../assets/files/campaign/flyer_4.pdf"}
+    {id:0, title:"Jour 1", path:"../../assets/files/campaign/flyer_1.pdf", spoil:new Date('2020-04-11T10:20:30Z')<new Date()},
+    {id:1, title:"Jour 2", path:"../../assets/files/campaign/flyer_2.pdf", spoil:new Date('2020-04-11T10:20:30Z')<new Date()},
+    {id:2, title:"Jour 3", path:"../../assets/files/campaign/flyer_3.pdf", spoil:new Date('2020-04-11T10:20:30Z')<new Date()},
+    {id:3, title:"Jour 4", path:"../../assets/files/campaign/flyer_4.pdf", spoil:new Date('2020-04-11T10:20:30Z')<new Date()}
   ];
   static songs = [
     {id:0, title:"Musique 1", lyrics:"blabla\nblala", state:false},
