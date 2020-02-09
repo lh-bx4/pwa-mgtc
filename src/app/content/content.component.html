@@ -24,7 +24,7 @@
     </div>
 
     <div id="Prog" [ngClass]="howShow(1)">
-        <ul>
+        <ul *ngIf="false">
             <li *ngFor="let i of SECTIONS;">
                 <button id=i.id class="accordion" (click)="toggleSection(i.id)">{{i.title}}</button>
                 <div class="sectiontop" [ngClass]="{shows : i.state, hides : !i.state}">
@@ -37,18 +37,19 @@
                 </div>
             </li>
         </ul>
-        <a class="btn btn-danger" href="../../assets/files/prog/Programme.pdf" download>Programme complet</a>
+        <img src="../../assets/icons/ui_secret.png">
+        <a *ngIf="false" class="btn btn-danger" href="../../assets/files/prog/Programme.pdf" download>Programme complet</a>
     </div>
 
     <div id="Campaign" [ngClass]="howShow(2)">
-        <label>Flyer de campagne en pdf (téléchargement)
+        <label *ngIf="false">Flyer de campagne en pdf (téléchargement)
             <ul>
                 <li *ngFor="let i of FLYERS;">
                     <a class="btn btn-danger" [href]="getPath(i.id)" download *ngIf="i.spoil">{{i.title}}</a>
                 </li>
             </ul>
         </label>
-        <ul id="#songs">
+        <ul id="#songs" *ngIf="false">
             <li *ngFor="let i of SONGS;">
                 <button id=i.id class="accordion" (click)="toggleLyrics(i.id)">{{i.title}}</button>
                 <div class="lyrics" [ngClass]="{shows : i.state, hides : !i.state}">
@@ -58,7 +59,8 @@
                 </div>
             </li>
         </ul>
-        <a class="btn btn-danger" [href]="LYRICS" download>Livret chansons</a>
+        <a *ngIf="false" class="btn btn-danger" [href]="LYRICS" download>Livret chansons</a>
+        <img src="../../assets/icons/ui_secret.png">
     </div>
 
     <div id="Party" [ngClass]="howShow(3)">

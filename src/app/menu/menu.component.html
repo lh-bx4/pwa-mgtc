@@ -32,6 +32,7 @@
         color: #efefef;
         font-size: medium;
         position: absolute;
+        margin:0;
     }
 </style>
 <div  
@@ -41,12 +42,14 @@
     
     <label id="title" 
         [style.top]="getNthOfH(0.25)" 
-        [style.left]="getNthOfH(1)">
+        [style.left]="getNthOfH(1)" 
+        [style.font-size]="textH(0.25)">
         {{title}}
     </label>
     <label id="lore"
         [style.bottom]="getNthOfH(0.25)" 
-        [style.left]="getNthOfH(1)">{{lore}}</label>
+        [style.left]="getNthOfH(1)" 
+        [style.font-size]="textH(0.15)">{{lore}}</label>
     <img [src]="getIcon()"
         [style.height]="getNthOfH(0.5)"
         [style.width]="getNthOfH(0.5)"

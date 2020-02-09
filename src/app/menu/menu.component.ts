@@ -29,6 +29,8 @@ export class MenuComponent implements OnInit {
     //return VarService.gradient(VarService.getMCLR(this.menuid, "DD"),VarService.getMCLR(Number(this.menuid)+1, "DD"),"135deg");
   }
 
+  textH(n) {return (n*Math.min(VarService.MH, 100))+"px"; }
+
   getTop() { return (this.isSelected ? VarService.NTH : VarService.MH*this.menuid+VarService.NTH)+"px"; }
   getLeft() { return MenuComponent.OneIsSelected && !this.isSelected ? "100%" : "0";  }
   getTransitionDelay() { return this.isSelected ? "0.5s" : "0s"; }

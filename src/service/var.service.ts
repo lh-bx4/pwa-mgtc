@@ -14,7 +14,7 @@ export class VarService {
     console.log("Resized [SCR::"+VarService.SCRW+":"+VarService.SCRH+"] [NTH::"+VarService.NTH+" | MH:"+VarService.MH+"]");
   }
   
-  public static get DEVMODE() {return false}
+  public static get DEVMODE() {return true}
   public static p(msg:string):void { if (this.DEVMODE) console.log(msg); }
   public static get ICO() { return "../assets/icon/notif_ico.png"}
   public static get BDG() { return "../assets/icon/notif_badge.png"}
@@ -126,13 +126,13 @@ export class VarService {
     {id:3, title:"Pot de spécialité (8 septembre)", lore:"Le pot de spécialité est une rencontre entre les nouveaux entrants et les anciens d’une même section dans un bar. Cette rencontre se finit ensuite dans un seul et même bar avec toutes les autres sections."},
     {id:4, title:"SQUAT", lore:"Le SQUAT permet de loger les Insassiens qui n’ont pas trouvé de logements avant la rentrée et les aide  temporairement à mieux connaître Strasbourg, à assister aux cours et à profiter des activités."},
     {id:5, title:"WELCOME PACK", lore:"Petit cadeau pour tous les entrants I3 AI1 primo ou non, il contient des cartes des bons endroits à Strasbourg, une brochure regroupant l’ensemble des événements, le PIFE et bien plus encore. Ces derniers donneront la possibilité aux nouveaux entrants de profiter des activités de Strasbourg en se basant sur des recommandations personnalisées des Insassiens."}
-  ]
+  ];
 
   static flyers = [
-    {id:0, title:"Jour 1", path:"../../assets/files/campaign/flyer_1.pdf", spoil:new Date('2020-02-11T10:20:30Z')<new Date()},
-    {id:1, title:"Jour 2", path:"../../assets/files/campaign/flyer_2.pdf", spoil:new Date('2020-02-11T10:20:30Z')<new Date()},
-    {id:2, title:"Jour 3", path:"../../assets/files/campaign/flyer_3.pdf", spoil:new Date('2020-02-11T10:20:30Z')<new Date()},
-    {id:3, title:"Jour 4", path:"../../assets/files/campaign/flyer_4.pdf", spoil:new Date('2020-02-11T10:20:30Z')<new Date()}
+    {id:0, title:"Jour 1", path:"../../assets/files/campaign/flyer_1.pdf", spoil:new Date('2020-03-11T10:20:30Z')<new Date()},
+    {id:1, title:"Jour 2", path:"../../assets/files/campaign/flyer_2.pdf", spoil:new Date('2020-03-11T10:20:30Z')<new Date()},
+    {id:2, title:"Jour 3", path:"../../assets/files/campaign/flyer_3.pdf", spoil:new Date('2020-03-11T10:20:30Z')<new Date()},
+    {id:3, title:"Jour 4", path:"../../assets/files/campaign/flyer_4.pdf", spoil:new Date('2020-03-11T10:20:30Z')<new Date()}
   ];
   
   static songs = [
@@ -142,17 +142,17 @@ export class VarService {
   ];
   static lyrics = "../../assets/files/campaign/Chansons.pdf"
   static partys = [
-    {name:"Soft 1", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_soft_1.png", spoil:new Date('2020-04-11T10:20:30Z')<new Date()},
-    {name:"Hard 1", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_hard_1.png", spoil:new Date('2011-04-11T10:20:30Z')<new Date()},
-    {name:"Soft 2", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_soft_2.png", spoil:new Date('2011-04-11T10:20:30Z')<new Date()},
-    {name:"Hard 2", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_hard_2.png", spoil:new Date('2011-04-11T10:20:30Z')<new Date()}
+    {name:"Soft 1", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_soft_1.png", spoil:new Date('2020-03-11T10:20:30Z')<new Date()},
+    {name:"Hard 1", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_hard_1.png", spoil:new Date('2020-03-11T10:20:30Z')<new Date()},
+    {name:"Soft 2", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_soft_2.png", spoil:new Date('2020-03-11T10:20:30Z')<new Date()},
+    {name:"Hard 2", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_hard_2.png", spoil:new Date('2020-03-11T10:20:30Z')<new Date()}
   ];
   // TODO links !
   static links = [
     "https://magellantic.forumactif.com",
-    "https://www.facebook.com",
-    "https://www.instagram.com/?hl=fr",
-    "http://snap",
+    "https://www.facebook.com/magellantic",
+    "https://instagram.com/magell.antic",
+    "http://www.snapchat.com/add/magellantic",
     "http://magell1nuits.fr/"
   ]
 
