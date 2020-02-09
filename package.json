@@ -21,6 +21,7 @@
     "@angular/pwa": "^0.803.23",
     "@angular/router": "~8.2.14",
     "@angular/service-worker": "~8.2.14",
+    "angular": "^1.7.9",
     "angular-animate": "^1.7.9",
     "bootstrap": "^4.4.1",
     "rxjs": "~6.4.0",
