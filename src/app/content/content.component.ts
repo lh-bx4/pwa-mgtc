@@ -20,6 +20,7 @@ export class ContentComponent implements OnInit {
   public get SECTIONS() { return VarService.SECTIONS; }
   public get FLYERS() { return VarService.FLYERS; }
   public get SONGS() { return VarService.SONGS; }
+  public get LYRICS() { return VarService.LYRICS; }
 
   getPath(n) {
     return VarService.FLYERS[n].spoil ? VarService.FLYERS[n].path : "";

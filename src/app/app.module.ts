@@ -55,8 +55,9 @@ export class AppModule {
   };
 
   password() {
-    window.alert("Checking...");
-    if (this.hash(window.prompt(">"))!=410387358) {
+    var x = window.location.href
+    var y = x.substr(x.indexOf("?x=")+3);
+    if (this.hash(y)!=410387358) {
       alert("unauthorized");
       throw new Error("denied");
     }

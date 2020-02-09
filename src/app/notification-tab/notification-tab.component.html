@@ -102,10 +102,11 @@ label {
 .mess_lore {
     font-weight: 5px;
 }
-.Links img {
-    width:20%;
-    margin: auto;
+.mess_title {
+    width:100%;
 }
+
+
 #contentbox div {
     margin:5px auto;
 }
@@ -138,6 +139,29 @@ button {
     background: none;
     color: #efefef;
 }
+
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 5%;
+}
+.notif {
+    position:relative;
+}
+#contentbox div {
+    position: relative;
+}
+img.notif_icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 9% !important;
+}
+.Links img {
+    width:20%;
+    margin: auto;
+}
 </style>
 <div >
     <div id="touchbox" (click)="onDropdown()" [ngStyle]="{'height':NTH}">
@@ -150,8 +174,10 @@ button {
     <div id="contentbox" [ngStyle]="{'height':paneH, 'border-bottom-left-radius':paneBR, 'border-bottom-right-radius':paneBR}">
         <div class="Messages">
             <label>Notifications</label>
+            <img class="notif_icon" src="../../assets/icons/ui_mess.svg">
             <ul>
-                <li *ngFor="let i of getmessages();" (click)="onNotify(i.UID)">
+                <li class="notif" *ngFor="let i of getmessages();" (click)="onNotify(i.UID)">
+                    <img src="../../assets/icons/ui_agenda.png" class="close">
                     <label class="mess_title">{{i.title}}</label>
                     <label class="mess_lore">{{i.body}}</label>
                 </li>
@@ -159,10 +185,12 @@ button {
         </div>
         <div class="Params">
             <label>Paramètres</label>
+            <img class="notif_icon" src="../../assets/icons/ui_param.svg">
             <button (click)="allowNotification()">Autoriser les notifications</button>
         </div>
         <div class="Links">
             <label>Voir aussi</label>
+            <img class="notif_icon" src="../../assets/icons/ui_forum.png">
             <img src="../../assets/icons/ui_forum.png" (click)="redirect(0)">
             <img src="../../assets/icons/ui_fb.png" (click)="redirect(1)">
             <img src="../../assets/icons/ui_insta.png" (click)="redirect(2)">

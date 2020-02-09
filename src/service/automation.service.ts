@@ -111,21 +111,30 @@ export class AutomationService {
 
 }
 
-export class LocalNotif extends Notification {
+export class LocalNotif {
   
+  public title;
+  public tag;
   private date:Date;
+  private options;
+  public body;
 
   constructor(tl:string, dt:Date, txt:string, img:string='') {
-    super(tl, {
+    this.title=tl;
+    this.tag = dt.toUTCString();
+    this.body=txt;
+    this.date = dt;
+    
+    this.options={
       badge: VarService.BDG,
       icon: VarService.ICO,
       vibrate: [100, 100, 100, 100, 100, 300],
 
       tag:dt.toUTCString(),
       body: txt,
-      image:img,
-    });
-    this.date = dt;
+      image:img
+    };
+    
   }
 
   // used to detect if a notifiaction can be displayed or not
@@ -145,15 +154,7 @@ export class LocalNotif extends Notification {
   get UID() { return this.tag+":"+this.title; }
 
   push() {
-    navigator.serviceWorker.ready.then(
-      function(serviceWorker) {
-        if (this.isMature()) {
-          console.log("pushing "+this.UID);
-          serviceWorker.showNotification(this.title, this.options);
-        } else {
-          console.log(this.UID+" cannot be pushed");
-        }
-    });
+    if (this.isMature()) new Notification(this.title, this.options);
   }
 
   close() {
