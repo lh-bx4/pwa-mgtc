@@ -8,6 +8,7 @@ export class AutomationService {
 
   // return most recent notifications
   get MatureNotifications() {
+    if (VarService.OS=="iOS") return [];
     var ret:LocalNotif[]=[];
     this.ScheduledNotifs.forEach(el => {
       if (el.isMature()) ret = [el].concat(ret);
@@ -35,12 +36,14 @@ export class AutomationService {
     
 
     clearNotifs() {
+      if (VarService.OS=="iOS") return;
       this.ScheduledNotifs.forEach(el => {
         localStorage.removeItem(el.UID);
       });
     }
 
     requestNotifications():void {
+      if (VarService.OS=="iOS") return;
       console.log("Permissions:"+Notification.permission);
       switch (Notification.permission) {
         case "denied":console.log("Notifications Denied");
@@ -62,6 +65,7 @@ export class AutomationService {
     }
 
     installNotifications():void {
+      if (VarService.OS=="iOS") return;
       //Installation
       // Set every not yet stored scheduled notifications to unseen
       this.ScheduledNotifs.forEach(el => {
@@ -74,6 +78,7 @@ export class AutomationService {
     }
 
   processNotifications() {
+    if (VarService.OS=="iOS") return;
     if (Notification.permission=="granted") {
       this.ScheduledNotifs.forEach(el => {
         if (el.isMature()) el.push();
@@ -85,6 +90,7 @@ export class AutomationService {
   }
 
   printNotificationsState() {
+    if (VarService.OS=="iOS") return;
     this.ScheduledNotifs.forEach(el => {
       var x = el.LNState[0];
       var y = el.LNState[1];
@@ -93,6 +99,7 @@ export class AutomationService {
   }
 
   close(uid:string) {
+    if (VarService.OS=="iOS") return;
     this.MatureNotifications.forEach(el => {
       if (el.UID==uid) el.close();
     });
@@ -121,6 +128,7 @@ export class LocalNotif {
   public body;
 
   constructor(tl:string, dt:Date, txt:string, img:string='') {
+    if (VarService.OS=="iOS") return;
     this.title=tl;
     this.tag = dt.toUTCString();
     this.body=txt;
@@ -140,12 +148,14 @@ export class LocalNotif {
 
   // used to detect if a notifiaction can be displayed or not
   get LNState() {
+    if (VarService.OS=="iOS") return;
     var x = this.date<new Date();
     var y = localStorage.getItem(this.UID)=='false';
     return [x,y];
   }
   
   isMature():boolean {
+    if (VarService.OS=="iOS") return;
     var x = this.LNState;
     var y = x[0] && x[1];
     console.log(y);
@@ -155,10 +165,12 @@ export class LocalNotif {
   get UID() { return this.tag+":"+this.title; }
 
   push() {
+    if (VarService.OS=="iOS") return;
     if (this.isMature()) new Notification(this.title, this.options);
   }
 
   close() {
+    if (VarService.OS=="iOS") return;
     localStorage.setItem(this.UID, 'true');
   }
 

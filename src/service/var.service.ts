@@ -19,6 +19,7 @@ export class VarService {
   public static get ICO() { return "../assets/icon/notif_ico.png"}
   public static get BDG() { return "../assets/icon/notif_badge.png"}
 
+  private static OpSys;
   private static scrH:number;
   private static scrW:number;
   private static mH:number;
@@ -26,6 +27,9 @@ export class VarService {
   private static readonly mC:number = 5;
   private static mclrs = ["#A62C23","#8C251D","#661B15","#4d1410","#330D0B","#2B0906"];
 
+  public static get OS():string {
+    return this.OpSys;
+  }
   public static get SCRH():number { return this.scrH; }
   public static get SCRW():number { return this.scrW; }
   public static get NTH():number { return this.ntH; }
@@ -45,8 +49,32 @@ export class VarService {
   }
 
   init() {
+    VarService.OpSys=this.getMobileOperatingSystem();
     this.onResize();
     // get party state in terms of date
+  }
+
+  getMobileOperatingSystem() {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  
+        // Windows Phone must come first because its UA also contains "Android"
+      if (/windows phone/i.test(userAgent)) {
+        console.log("Windows Phone");
+        return "Windows Phone";
+      }
+  
+      if (/android/i.test(userAgent)) {
+        console.log("Android");
+          return "Android";
+      }
+  
+      // iOS detection from: http://stackoverflow.com/a/9039885/177710
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        console.log("iOS");
+          return "iOS";
+      }
+  
+      return "unknown";
   }
 
   constructor() {
