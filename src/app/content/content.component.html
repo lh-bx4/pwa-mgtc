@@ -32,7 +32,8 @@
                     <video width="100%" height="auto" controls>
                         <source [src]="i.video" type="video/mp4">
                         <img src="../../assets/icons/ui_err.png">
-                    </video> 
+                    </video>
+                    <p class="txt">{{i.txt}}</p>
                 </div>
             </li>
         </ul>
@@ -42,7 +43,7 @@
         <label>Flyer de campagne en pdf (téléchargement)
             <ul>
                 <li *ngFor="let i of FLYERS;">
-                    <a class="btn btn-danger" [href]="i.path" download>{{i.title}}</a>
+                    <a class="btn btn-danger" [href]="getPath(i.id)" download>{{i.title}}</a>
                 </li>
             </ul>
         </label>

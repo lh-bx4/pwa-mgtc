@@ -94,7 +94,7 @@ export class VarService {
     {name:"Sabrina Desjobert - Strampa", lore:"La cata corse débarque", src:'../../assets/files/team/polo/POLO_nom.JPG'},
   ];
   static sections = [
-    {id:0, title:"Pole A&I", lore:"-", state:false},
+    {id:0, title:"Pole A&I", lore:"-", state:false, txt:"mon txt"},
     {id:1, title:"Pole Accueil", lore:"Ce petit pôle a une unique mission : accueillir tout le monde ! On organise des événments, on offre des cadeaux, on vous fait découvrir tout le nécessaire pour s’armer à une année à l’INSA !!! On aime aussi faire des câlins ;) A travers des journées d’accueil, un WEB de trois jours, des cadeaux, du rire et de l’amour, vous serez préparez à découvrir, et aimer notre école, ses étudiants et ses alentours !",state:false},
     {id:2, title:"Pole AEI", lore:"Le pôle AEI a pour rôle de faire le liens entre le BDE de l'insa de Strasbourg et les autres INSA. Il prend place au sein du bureau de gestion de l'Association des Elèves des INSA. Association qui a pour but de rapprocher les élèves au travers d'événements inter-INSA mais aussi de représenter les élèves du groupe INSA.",state:false},
     {id:3, title:"Pole Bureau", lore:"-",state:false},

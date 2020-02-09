@@ -10,7 +10,7 @@ export class AutomationService {
   get MatureNotifications() {
     var ret:LocalNotif[]=[];
     this.ScheduledNotifs.forEach(el => {
-      if (el.isMature) ret = [el].concat(ret);
+      if (el.isMature()) ret = [el].concat(ret);
     });
     return ret;
   }
@@ -23,7 +23,6 @@ export class AutomationService {
       console.error("Multiple instances of AutomationService !");
     }
   }
-
 
   private ScheduledNotifs:LocalNotif[] = [
     new LocalNotif("test0", new Date('2011-04-11T10:20:30Z'), "text0"),
@@ -76,7 +75,7 @@ export class AutomationService {
   processNotifications() {
     if (Notification.permission=="granted") {
       this.ScheduledNotifs.forEach(el => {
-        el.push();
+        if (el.isMature()) el.push();
       });
     } else {
       console.log("! Can't push notifications since it's not allowed.");
@@ -136,19 +135,25 @@ export class LocalNotif extends Notification {
     return [x,y];
   }
   
-  get isMature():boolean {
+  isMature():boolean {
     var x = this.LNState;
-    return x[0]&&x[1];
+    var y = x[0] && x[1];
+    console.log(y);
+    return y;
   }
 
   get UID() { return this.tag+":"+this.title; }
 
   push() {
-    if (this.isMature) {
-      navigator.serviceWorker.ready.then(function(serviceWorker) {
-        serviceWorker.showNotification(this.title, this.options);
-      });
-    }
+    navigator.serviceWorker.ready.then(
+      function(serviceWorker) {
+        if (this.isMature()) {
+          console.log("pushing "+this.UID);
+          serviceWorker.showNotification(this.title, this.options);
+        } else {
+          console.log(this.UID+" cannot be pushed");
+        }
+    });
   }
 
   close() {
