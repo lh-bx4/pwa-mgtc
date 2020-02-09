@@ -54,16 +54,20 @@ export class AppModule {
     return hash;
   };
 
+  getString(str:string) {
+    var x = window.location.href;
+    return x.substr(x.indexOf(str)+str.length);
+  }
+
   password() {
-    var x = window.location.href
-    var y = x.substr(x.indexOf("?x=")+3);
-    if (this.hash(y)!=410387358) {
+    if (this.hash(this.getString("?x="))!=410387358) {
       alert("unauthorized");
       throw new Error("denied");
     }
   }
 
   constructor() {
+    if (this.getString("?test=")=="showmealert") alert("Here is an alert");
     if (!VarService.DEVMODE) this.password();
   }
 
