@@ -27,4 +27,18 @@
   <app-root></app-root>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>
+<script>
+  getString = function (str) {
+    var x = window.location.href;
+    return x.substr(x.indexOf(str)+str.length);
+  }
+ 
+  window.onerror = function (msg, url, line) {
+    if (getString("?debug=")!="true") return;
+    console.error("catched:"+msg);  
+    alert("Message : " + msg );
+    alert("url : " + url );
+    alert("Line number : " + line );
+  };
+</script>
 </html>
