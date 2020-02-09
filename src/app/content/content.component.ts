@@ -21,6 +21,8 @@ export class ContentComponent implements OnInit {
   public get FLYERS() { return VarService.FLYERS; }
   public get SONGS() { return VarService.SONGS; }
 
+  
+
   howShow(n) { return n==this.current ? 'showc' : 'hidec'; }
   getTransitionDelay() { return (this.shown ? 0.5 : 0).toString()+"s"; }
   public getH() { return (this.shown ? VarService.PH : 0).toString()+"px"; }

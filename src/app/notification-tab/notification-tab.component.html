@@ -99,6 +99,9 @@ label {
     text-align: center;
     font-weight: 10px;
 }
+.mess_lore {
+    font-weight: 5px;
+}
 .Links img {
     width:20%;
     margin: auto;
@@ -126,6 +129,15 @@ label {
     }
     
 }
+
+button {
+    width:100%;
+    border:solid;
+    border-width: 1px;
+    border-color: #efefef;
+    background: none;
+    color: #efefef;
+}
 </style>
 <div >
     <div id="touchbox" (click)="onDropdown()" [ngStyle]="{'height':NTH}">
@@ -147,7 +159,7 @@ label {
         </div>
         <div class="Params">
             <label>Paramètres</label>
-            <p>No parameter yet</p>
+            <button (click)="allowNotification()">Autoriser les notifications</button>
         </div>
         <div class="Links">
             <label>Voir aussi</label>

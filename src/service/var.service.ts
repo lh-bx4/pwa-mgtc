@@ -6,7 +6,7 @@ import { Injectable, HostListener } from '@angular/core';
 export class VarService {
 
   @HostListener('window:resize', ['$event'])
-  onResize(event){
+  onResize(event?){
     VarService.scrH=window.innerHeight;
     VarService.scrW=window.innerWidth;
     VarService.ntH=(VarService.scrH-VarService.ntH)%VarService.mC+VarService.ntH;
@@ -44,13 +44,7 @@ export class VarService {
   }
 
   init() {
-    VarService.scrH=window.innerHeight;
-    VarService.scrW=window.innerWidth;
-    VarService.ntH=(VarService.scrH-VarService.ntH)%VarService.mC+VarService.ntH;
-    VarService.mH=(VarService.scrH-VarService.ntH)/VarService.mC;
-    console.log("VarService Initialised");
-    console.log("SCR::"+VarService.SCRW+":"+VarService.SCRH);
-    console.log("NTH::"+VarService.NTH+" | MH:"+VarService.MH);
+    this.onResize();
     // get party state in terms of date
   }
 
@@ -127,10 +121,10 @@ export class VarService {
     {id:1, title:"Musique 2", lyrics:"drla\nblala", state:false}
   ];
   static partys = [
-    {name:"Soft 1", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_soft_1.png", spoil:false},
-    {name:"Hard 1", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_hard_1.png", spoil:false},
-    {name:"Soft 2", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_soft_2.png", spoil:false},
-    {name:"Hard 2", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_hard_2.png", spoil:false}
+    {name:"Soft 1", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_soft_1.png", spoil:new Date('2020-04-11T10:20:30Z')<new Date()},
+    {name:"Hard 1", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_hard_1.png", spoil:new Date('2011-04-11T10:20:30Z')<new Date()},
+    {name:"Soft 2", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_soft_2.png", spoil:new Date('2011-04-11T10:20:30Z')<new Date()},
+    {name:"Hard 2", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_hard_2.png", spoil:new Date('2011-04-11T10:20:30Z')<new Date()}
   ];
   // TODO links !
   static links = [

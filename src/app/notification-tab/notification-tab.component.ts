@@ -25,6 +25,10 @@ export class NotificationTabComponent implements OnInit {
     this.as.close(uid);
   }
   
+  allowNotification() {
+    this.as.requestNotifications();
+  }
+
   onDropdown() {
     this.pane=!this.pane;
     this.paneH = (this.pane ? VarService.SCRH-VarService.NTH : 0).toString()+"px";

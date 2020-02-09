@@ -54,7 +54,8 @@
         #photolist {}
         ul {
             li {
-                height: 150px;
+                min-height: 150px;
+                height: auto;
                 * {
                     box-shadow: none;
                     display: inline-block;
@@ -232,10 +233,12 @@
 .hidec {
     transition-delay: 0.5s;
     visibility: hidden;
+    display:none;
 }
 .showc {
     transition-delay: 0s;
     visibility: visible;
+    display:block;
 }
 
 

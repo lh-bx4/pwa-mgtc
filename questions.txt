@@ -1,24 +1,27 @@
+Ne pas faire les objectifs entre parenthèses.
+
 TOUS
 ---Calendrier
->*Il faudrait le remplir...
+Remplir le calendrier
+
 ---Soirées
-Peut on faire un lien de billeterie pumpkin pro pour les soirées ?
-soirée 1 ok, 
-Que pensez vous du système antispoil ?
-/Changer le nom de la catégorie et ajouter les Evennement ? (ex Arcery Tag...)
-version affiche + ordre soft
+Programmer les dates du système antispoil
+Mettre la bonne verion des affiches, mettre dans l'ordre les soirées.
+
+(Billeterie pumpkin pro)
+(Changer le nom de la catégorie et ajouter les Evennement ? (ex Arcery Tag...))
 
 --- Campagne
-Flyer : Antispoil ? Tous d'un coup ? oui
-*Musique : video
-Musique : faire un petit document téléchargeable avec les paroles? com anim chanson
-*Ajouter coré oui
+Regler les dates de l'antispoil Flyer
+Mettre les vidéo pour les musiques
+Mettre le lien du document téléchargeable avec les parole de chansons.
+Ajouter la vidéo de coré
+
 ---Programme
-voir un peut com le bot
+>Faire un peu comme le bot au niveau des infos accessible. 1 description, un point important + photo + vidéo
 section +, a retenir ...
->Vos descriptions !!! (Celles d'ophé)
-*Livret complet
-*Bon fichiers (photos video)
+Ajouter le livret complet du programme
+
 ---Team
 >Paragraphe de liste ! voir celui bureau dans le resumé de programme
 >Réduire la qualité de la photo
@@ -27,20 +30,16 @@ section +, a retenir ...
 >Vos descriptions perso !!!
 
 ---Service Worker
-*Notifications
-*Paramètres ?
-*Online indicator
-*AntiSpoil
+X Online indicator
 
 ---Liens
-.Fonctionnel
-
+Mettre les bons liens
 
 ------Forum
 Quelqu'un veut le faire, c'est pas trop compliqué ?
 
 
-
+private gcode = "55563728161231470";
 
 
 
