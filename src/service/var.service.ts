@@ -88,7 +88,7 @@ export class VarService {
     {name:"Hugo FRançois - Cata", lore:"Faut-il vraiment une explication ?", src:'../../assets/files/team/polo/POLO_nom.JPG'},
     {name:"AlexandRe Gonzalez - Applause", lore:"Il dégaine plus vite qu'il applaudit", src:'../../assets/files/team/polo/POLO_nom.JPG'},
     {name:"Julie Zinnie - Bobo", lore:"La campagne des Magell'antic, aïe ça va faiRe mal !", src:'../../assets/files/team/polo/POLO_nom.JPG'},
-    {name:"Samuel Missioux - Patoche", lore:"...", src:'../../assets/files/team/polo/POLO_nom.JPG'},
+    {name:"Samuel Missioux - Patoche", lore:"ARticule quand tu pètes.", src:'../../assets/files/team/polo/POLO_nom.JPG'},
     {name:"Baptiste Gaumont - LDM", lore:"En cape tchana baby", src:'../../assets/files/team/polo/POLO_nom.JPG'},
     {name:"LauRaline Antoine - Wesh", lore:"AALORS ! Viens pas sur mon teRteR !", src:'../../assets/files/team/polo/POLO_nom.JPG'},
     {name:"SabRina DesjobeRt - StRampa", lore:"La cata coRse débaRque", src:'../../assets/files/team/polo/POLO_nom.JPG'},
@@ -110,12 +110,30 @@ export class VarService {
     {id:13, title:"Pôle SoiRées", lore:"Le Rôle pRincipal du pôle soiRée est d’oRganiseR des évènements festifs et distRayants pouR les élèves de l’école. De plus, il peRmet de mettRe en avant les étudiants de l’école de manièRe singulièRe avec des évènements ayant pouR vocation une ouveRtuRe musicale mais aussi cultuRelle.",state:false},
     {id:14, title:"Pôle STH", lore:"Le pôle STH est Responsable de l’oRganisation d'événements conceRnants les étudiants en pRemière année. Ses objectifs sont de faiRe entReR les étudiants dans l’univeRs de l’Insa StRasbouRg, tant scolaiRement que extRa-scolaiRement.",state:false},
   ];
+
+  static prpaccn = [
+    {id:0, title:"Journée d’accueil (1er septembre)", lore:"Cet événement permettra aux nouveaux entrants de mieux connaître l’INSA grâce à des visites organisées par les anciens et permettra aux primo-entrants d’échanger et de partager avec leur future classe. Les visites seront suivies d’un pique-nique au parc de l’orangerie où des activités seront organisées telles que du Molky, du foot, de l’ultimate ou encore du volley."},
+    {id:1, title:"Groupe Facebook des participants du WEB", lore:"Ce groupe a pour objectif de communiquer les différentes informations du WEB, de publier les teasers du week-end ainsi que les photos et les vidéos prises durant ce week-end bus de 3 jours."},
+    {id:2, title:"Profil Facebook “Pol Ak”", lore:"Ce profil a pour but d’améliorer la réactivité face aux questions des nouveaux entrants en donnant la possibilité aux 4 membres du pôle Accueil, le Président et le VPI de pouvoir y répondre."},
+    {id:3, title:"Teasers des bus lors du WEB", lore:"Des teasers du WEB seront publiés sur le groupe Facebook et auront pour principal but d’attiser la curiosité des nouveaux entrants et d’accentuer leur enthousiasme."},
+  ];
+
+  static prpaccr = [
+    {id:0, title:"WEB (18-19-20 septembre)", lore:"Le WEB est un week-end en bus de 3 jours destiné à accueillir les nouveaux en alliant activités traditionnelles, activités de découverte et soirées dans l’objectif d’une cohésion entre les nouveaux."},
+    {id:1, title:"Journée ASCPA (4 septembre)", lore:"Cette journée aura pour but de permettre aux nouveaux entrants de passer un bon moment et de se rencontrer par le biais de plusieurs activités avec un déjeuner en commun avec les STH."},
+    {id:2, title:"Rallye coloc (5 septembre)", lore:"Le rallye coloc est un événement traditionnel important de l’accueil des nouveaux entrants. Il permet la rencontre entre nouveaux entrants et anciens et fera découvrir les colocs existantes de l’INSA."},
+    {id:3, title:"Pot de spécialité (8 septembre)", lore:"Le pot de spécialité est une rencontre entre les nouveaux entrants et les anciens d’une même section dans un bar. Cette rencontre se finit ensuite dans un seul et même bar avec toutes les autres sections."},
+    {id:4, title:"SQUAT", lore:"Le SQUAT permet de loger les Insassiens qui n’ont pas trouvé de logements avant la rentrée et les aide  temporairement à mieux connaître Strasbourg, à assister aux cours et à profiter des activités."},
+    {id:5, title:"WELCOME PACK", lore:"Petit cadeau pour tous les entrants I3 AI1 primo ou non, il contient des cartes des bons endroits à Strasbourg, une brochure regroupant l’ensemble des événements, le PIFE et bien plus encore. Ces derniers donneront la possibilité aux nouveaux entrants de profiter des activités de Strasbourg en se basant sur des recommandations personnalisées des Insassiens."}
+  ]
+
   static flyers = [
     {id:0, title:"Jour 1", path:"../../assets/files/campaign/flyer_1.pdf", spoil:new Date('2020-02-11T10:20:30Z')<new Date()},
     {id:1, title:"Jour 2", path:"../../assets/files/campaign/flyer_2.pdf", spoil:new Date('2020-02-11T10:20:30Z')<new Date()},
     {id:2, title:"Jour 3", path:"../../assets/files/campaign/flyer_3.pdf", spoil:new Date('2020-02-11T10:20:30Z')<new Date()},
     {id:3, title:"Jour 4", path:"../../assets/files/campaign/flyer_4.pdf", spoil:new Date('2020-02-11T10:20:30Z')<new Date()}
   ];
+  
   static songs = [
     {id:0, title:"Musique 1", lyrics:"blabla\nblala", state:false},
     {id:1, title:"Musique 2", lyrics:"drla\nblala", state:false}

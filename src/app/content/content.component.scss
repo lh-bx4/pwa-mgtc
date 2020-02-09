@@ -50,7 +50,20 @@
     
 
     #Team {
-        label {}
+        .pres {
+            * {
+                box-shadow: none;
+                display: inline-block;
+                object-fit: cover;
+            }
+            .titre{
+                top : 50px;
+                font-size: x-large;
+            }
+            .texte{
+            bottom : 50px;
+            }
+        }
         #photolist {}
         ul {
             li {
@@ -120,6 +133,18 @@
                         text-justify: inter-word;
                     }
                     .videopole {}
+                    .n{
+                        * {
+                            box-shadow: none;
+                            display: inline-block;
+                            object-fit: cover;
+                        }
+                        .nv{
+                            color: #efefef;
+                            top : 50px;
+                            font-size: x-large;
+                        }
+                    }
                 }
 
                 .hides {

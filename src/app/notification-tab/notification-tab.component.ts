@@ -35,6 +35,8 @@ export class NotificationTabComponent implements OnInit {
     this.paneBR = this.pane ? "0%" : "50%";
   }
 
+  
+
   redirect(n) {
     var x:string = VarService.getL(n);
     alert("Vous allez être redirigé vers "+x);
