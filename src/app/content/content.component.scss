@@ -133,17 +133,22 @@
                         text-justify: inter-word;
                     }
                     .videopole {}
-                    .n{
-                        * {
-                            box-shadow: none;
-                            display: inline-block;
-                            object-fit: cover;
-                        }
-                        .nv{
-                            color: #efefef;
-                            top : 50px;
-                            font-size: x-large;
-                        }
+                    .nv{
+                        font-size: medium;
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-style: italic;
+                        font-weight: 20px;
+                        color: #efefef;
+                        padding:5px;
+                        font-size: x-large;
+                    }
+                        
+                    .txt {
+                      font-size: medium;
+                      font-family: Arial, Helvetica, sans-serif;
+                      font-style: italic;
+                      font-weight: 20px;
+                      color: #efefef;
                     }
                 }
 

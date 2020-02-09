@@ -32,19 +32,19 @@
                     <p>{{i.lore}}</p>
                     <video width="100%" height="auto" controls>
                         <source [src]="i.video" type="video/mp4">
-                        <img src="../../assets/icons/ui_err.png">
                     </video> 
-                    <Label class ="nv">Nouveautés</Label>
+                    <label class ="nv">Nouveautés</label>   
                 </div>
             </li>
         </ul>
+        <a class="btn btn-danger" href="../../assets/files/prog/Programme.pdf" download>Programme complet</a>
     </div>
 
     <div id="Campaign" [ngClass]="howShow(2)">
         <label>Flyer de campagne en pdf (téléchargement)
             <ul>
                 <li *ngFor="let i of FLYERS;">
-                    <a class="btn btn-danger" [href]="i.path" download>{{i.title}}</a>
+                    <a class="btn btn-danger" [href]="getPath(i.id)" download *ngIf="i.spoil">{{i.title}}</a>
                 </li>
             </ul>
         </label>
@@ -52,10 +52,13 @@
             <li *ngFor="let i of SONGS;">
                 <button id=i.id class="accordion" (click)="toggleLyrics(i.id)">{{i.title}}</button>
                 <div class="lyrics" [ngClass]="{shows : i.state, hides : !i.state}">
-                    <p>{{i.lyrics}}</p>
+                    <video width="100%" height="auto" controls>
+                        <source [src]="i.video" type="video/mp4">
+                    </video>
                 </div>
             </li>
         </ul>
+        <a class="btn btn-danger" [href]="LYRICS" download>Livret chansons</a>
     </div>
 
     <div id="Party" [ngClass]="howShow(3)">
