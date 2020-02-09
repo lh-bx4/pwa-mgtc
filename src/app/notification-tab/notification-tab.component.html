@@ -177,7 +177,7 @@ img.notif_icon {
             <img class="notif_icon" src="../../assets/icons/ui_mess.svg">
             <ul>
                 <li class="notif" *ngFor="let i of getmessages();" (click)="onNotify(i.UID)">
-                    <img src="../../assets/icons/ui_agenda.png" class="close">
+                    <img src="../../assets/icons/ui_close.png" class="close">
                     <label class="mess_title">{{i.title}}</label>
                     <label class="mess_lore">{{i.body}}</label>
                 </li>
