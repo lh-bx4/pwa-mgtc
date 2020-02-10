@@ -168,8 +168,8 @@ export class VarService {
   static flyers = [
     {id:0, title:"Jour 1", path:"../../assets/files/campaign/FLYER-MGTC-11.02.pdf", spoil:new Date('2020-02-11T06:20:30Z')<new Date()},
     {id:1, title:"Jour 2", path:"../../assets/files/campaign/FLYER-MGTC-13.02.pdf", spoil:new Date('2020-02-13T06:20:30Z')<new Date()},
-    {id:2, title:"Jour 3", path:"../../assets/files/campaign/FLYER-MGTC-17.02.pdf", spoil:new Date('2020-03-17T06:20:30Z')<new Date()},
-    {id:3, title:"Jour 4", path:"../../assets/files/campaign/FLYER-MGTC-19.02.pdf", spoil:new Date('2020-03-19T06:20:30Z')<new Date()}
+    {id:2, title:"Jour 3", path:"../../assets/files/campaign/FLYER-MGTC-17.02.pdf", spoil:new Date('2020-02-17T06:20:30Z')<new Date()},
+    {id:3, title:"Jour 4", path:"../../assets/files/campaign/FLYER-MGTC-19.02.pdf", spoil:new Date('2020-02-19T06:20:30Z')<new Date()}
   ];
   
   static songs = [
@@ -183,10 +183,10 @@ export class VarService {
   ];
   static lyrics = "../../assets/files/campaign/Chansons.pdf"
   static partys = [
-    {name:"Soft 1", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_soft_1.png", spoil:new Date('2020-03-11T10:20:30Z')<new Date()},
-    {name:"Hard 1", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_hard_1.png", spoil:new Date('2020-03-11T10:20:30Z')<new Date()},
-    {name:"Soft 2", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_soft_2.png", spoil:new Date('2020-03-11T10:20:30Z')<new Date()},
-    {name:"Hard 2", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_hard_2.png", spoil:new Date('2020-03-11T10:20:30Z')<new Date()}
+    {name:"Soft 1", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_soft_1.png", spoil:new Date('2020-02-11T06:20:30Z')<new Date()},
+    {name:"Hard 1", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_hard_1.png", spoil:new Date('2020-02-13T06:20:30Z')<new Date()},
+    {name:"Soft 2", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_soft_2.png", spoil:new Date('2020-02-17T06:20:30Z')<new Date()},
+    {name:"Hard 2", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_hard_2.png", spoil:new Date('2020-02-19T06:20:30Z')<new Date()}
   ];
   // TODO links !
   static links = [
