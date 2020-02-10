@@ -91,7 +91,7 @@ export class VarService {
     {name:"Lucas Trupcevic - SPLASH", lore:"Et ça fait BIM BAM PLOUF…", src:'../../assets/files/team/polo/POLO_LUCAST.jpg'},
     {name:"Ophélie Evieux - VETO", lore:"Il faut bien que quelqun s’occupe du Minautore.", src:'../../assets/files/team/polo/POLO_OPHELIEE.jpg'},
     {name:"Tiffaine Bailly - Touillette", lore:"Et tu chantes chantes chantes ce refrain qui te plait, et tu touilles touilles touilles c’est ta façon d’aimer", src:'../../assets/files/team/polo/POLO_TIFFAINEB.jpg'},
-    {name:"Flavien CHASSARD - Petit Poucet", lore:"Il y a pas de bonne ou mauvaise manière de retrouver son chemin", src:'../../assets/files/team/polo/POLO_FLAVIENC.jpg'},
+    {name:"Flavien CHASSARD - Petit Poucet", lore:"Il n'y a pas de bonne ou mauvaise manière de retrouver son chemin", src:'../../assets/files/team/polo/POLO_FLAVIENC.jpg'},
     {name:"Mélanie BEDUER - Melanight", lore:"Qu'on me donne l'obscurité puis la lumière", src:'../../assets/files/team/polo/POLO_MELANIEB.jpg'},
     {name:"Tom SERVIERE - Denied", lore:"Toujours un plan B", src:'../../assets/files/team/polo/POLO_TOMSEV.jpg'},
     {name:"Coline PITHON - Turbo", lore:"Ca commence sur les chapeaux de roue et ça finit dans le décor", src:'../../assets/files/team/polo/POLO_COLINEP.jpg'},
