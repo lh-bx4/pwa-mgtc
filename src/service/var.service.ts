@@ -16,8 +16,8 @@ export class VarService {
   
   public static get DEVMODE() {return true}
   public static p(msg:string):void { if (this.DEVMODE) console.log(msg); }
-  public static get ICO() { return "../assets/icon/notif_ico.png"}
-  public static get BDG() { return "../assets/icon/notif_badge.png"}
+  public static get ICO() { return "../../assets/files/team/polo/icon-72x72.png"}
+  public static get BDG() { return "../../assets/icons/ui_forum.png"}
 
   private static OpSys;
   private static scrH:number;
@@ -41,6 +41,8 @@ export class VarService {
   public static get SONGS() { return this.songs; }
   public static get PARTYS() { return this.partys; }
   public static get LYRICS() { return this.lyrics; }
+  public static get PARTNERS() { return this.partners; }
+  public static get MENUS() { return this.menus; }
 
   public static getMCLR(n:number, a:string="FF"):string { return this.mclrs[n]+a; }
   public static getL(n:number):string { return this.links[n]; }
@@ -52,6 +54,10 @@ export class VarService {
     VarService.OpSys=this.getMobileOperatingSystem();
     this.onResize();
     // get party state in terms of date
+  }
+
+  isCompatible() {
+    // compatibility error on messenger
   }
 
   getMobileOperatingSystem() {
@@ -75,6 +81,11 @@ export class VarService {
       }
   
       return "unknown";
+  }
+
+  static onRedirect(str:string) {
+    alert("Vous allez être redirigé vers "+str);
+    window.open(str);
   }
 
   constructor() {
@@ -123,21 +134,28 @@ export class VarService {
     {name:"Sabrina Desjobert - Strampa", lore:"La cata corse débarque", src:'../../assets/files/team/polo/POLO_SABRINAD.jpg'},
   ];
   static sections = [
-    {id:0, title:"Pôle A&I", lore:"Le pôle Arts & Industries a pour objectif de faire se rencontrer les étudiants de l’INSA Strasbourg et les membres de l’association Arts & Industries", state:false},
-    {id:1, title:"Pôle Accueil", lore:"Accueillir, aider, rencontrer, rigoler : telle est la devise du Pôle Acueil !",state:false},
-    {id:2, title:"Pôle AEI", lore:"Le pôle AEI a pour rôle de faire le liens entre le BDE de l'insa de Strasbourg et les autres INSA. Il prend place au sein du bureau de gestion de l'Association des Elèves des INSA. Association qui a pour but de rapprocher les élèves au travers d'événements inter-INSA mais aussi de représenter les élèves du groupe INSA.",state:false},
-    {id:3, title:"Pôle Bureau", lore:"L’objectif principal du bureau est d’assurer la cohésion et la logistique entre les différents pôles, l’administration et les organismes extérieurs à l’INSA Strasbourg.",state:false},
-    {id:4, title:"Pôle Club", lore:"Notre mission : promouvoir les clubs de l'INSA et faire le lien entre l'administration, les élèves et les clubs !",state:false},
-    {id:5, title:"Pôle Com", lore:"Cette anée tu auras le plaisir de communiquer avec Hector, qui pourra facilement t'aiguiller dans ta quête d'information. Et grâce à instagram tu pourras te tenir informé en images/vidéos sur toute l'actu de l'insa. Nous, le pôle com rouge seront la pour faciliter la communication des élèves vers ton BDE.",state:false},
-    {id:6, title:"Pôle Culture", lore:"Si t’as envie d’aller au théâtre, de faire une initiation au Self-défense ou d’assister à un match de hockey, le pôle Culture est fait pour toi !",state:false},
-    {id:7, title:"Pôle FIP", lore:"Le pôle FIP est là pour représenter les élèves en alternance. Il est aussi là pour les encourager à participer aux événements organisés par le BDE et à la vie associative de l’école.",state:false},
-    {id:8, title:"Pôle International", lore:"Accueille les internationnaux et encourae à la mobilité, le pôle internationnal ouvre ton esprit !",state:false},
-    {id:9, title:"Pôle Multi", lore:"Le Pôle multi sert à développer les outils nécessaire au bons fonctionnement du BDE. Les objectifs principaux sont la pérennisation de l’application du BDE, l’ajout de fonctionnalité à l’application… +- de détails comme vous voulez.",state:false},
-    {id:10, title:"Pôle Partenariat", lore:"Le rôle majeur du pôle partenariat est d'entretenir les partenaires du BDE afin de faciliter la vie des étudiants et de soutenir le BDE par des aides financières.",state:false},
-    {id:11, title:"Pôle Prev DD", lore:"Le pôle prévention permet de sensibiliser les élèves à des thématiques diverses!",state:false},
-    {id:12, title:"Pôle Réseau", lore:"Le pole Réseau est là pour connecter l'INSA aux autres écoles francaises.",state:false},
-    {id:13, title:"Pôle Soirées", lore:"Le rôle principal du pôle soirée est d’organiser des évènements festifs et distrayants pour les élèves de l’école. De plus, il permet de mettre en avant les étudiants de l’école de manière singulière avec des évènements ayant pour vocation une ouverture musicale mais aussi culturelle.",state:false},
-    {id:14, title:"Pôle STH", lore:"Le pôle STH est responsable de l’organisation d'événements concernants les étudiants en première année. Ses objectifs sont de faire entrer les étudiants dans l’univers de l’Insa Strasbourg, tant scolairement que extra-scolairement.",state:false},
+    {id:0, content:1, title:"Pôle A&I", lore:"Le pôle Arts & Industries a pour objectif de faire se rencontrer les étudiants de l’INSA Strasbourg et les membres de l’association Arts & Industries", state:false},
+    {id:1, content:1, title:"Pôle Accueil", lore:"Accueillir, aider, rencontrer, rigoler : telle est la devise du Pôle Acueil !",state:false},
+    {id:2, content:1, title:"Pôle AEI", lore:"Le pôle AEI a pour rôle de faire le liens entre le BDE de l'insa de Strasbourg et les autres INSA. Il prend place au sein du bureau de gestion de l'Association des Elèves des INSA. Association qui a pour but de rapprocher les élèves au travers d'événements inter-INSA mais aussi de représenter les élèves du groupe INSA.",state:false},
+    {id:3, content:1, title:"Pôle Bureau", lore:"L’objectif principal du bureau est d’assurer la cohésion et la logistique entre les différents pôles, l’administration et les organismes extérieurs à l’INSA Strasbourg.",state:false},
+    {id:4, content:1, title:"Pôle Club", lore:"Notre mission : promouvoir les clubs de l'INSA et faire le lien entre l'administration, les élèves et les clubs !",state:false},
+    {id:5, content:1, title:"Pôle Com", lore:"Cette anée tu auras le plaisir de communiquer avec Hector, qui pourra facilement t'aiguiller dans ta quête d'information. Et grâce à instagram tu pourras te tenir informé en images/vidéos sur toute l'actu de l'insa. Nous, le pôle com rouge seront la pour faciliter la communication des élèves vers ton BDE.",state:false},
+    {id:6, content:1, title:"Pôle Culture", lore:"Si t’as envie d’aller au théâtre, de faire une initiation au Self-défense ou d’assister à un match de hockey, le pôle Culture est fait pour toi !",state:false},
+    {id:7, content:1, title:"Pôle FIP", lore:"Le pôle FIP est là pour représenter les élèves en alternance. Il est aussi là pour les encourager à participer aux événements organisés par le BDE et à la vie associative de l’école.",state:false},
+    {id:8, content:1, title:"Pôle International", lore:"Accueille les internationnaux et encourae à la mobilité, le pôle internationnal ouvre ton esprit !",state:false},
+    {id:9, content:1, title:"Pôle Multi", lore:"Le Pôle multi sert à développer les outils nécessaire au bons fonctionnement du BDE. Les objectifs principaux sont la pérennisation de l’application du BDE, l’ajout de fonctionnalité à l’application… +- de détails comme vous voulez.",state:false},
+    {id:10, content:1, title:"Pôle Partenariat", lore:"Le rôle majeur du pôle partenariat est d'entretenir les partenaires du BDE afin de faciliter la vie des étudiants et de soutenir le BDE par des aides financières.",state:false},
+    {id:11, content:1, title:"Pôle Prev DD", lore:"Le pôle prévention permet de sensibiliser les élèves à des thématiques diverses!",state:false},
+    {id:12, content:1, title:"Pôle Réseau", lore:"Le pole Réseau est là pour connecter l'INSA aux autres écoles francaises.",state:false},
+    {id:13, content:1, title:"Pôle Soirées", lore:"Le rôle principal du pôle soirée est d’organiser des évènements festifs et distrayants pour les élèves de l’école. De plus, il permet de mettre en avant les étudiants de l’école de manière singulière avec des évènements ayant pour vocation une ouverture musicale mais aussi culturelle.",state:false},
+    {id:14, content:1, title:"Pôle STH", lore:"Le pôle STH est responsable de l’organisation d'événements concernants les étudiants en première année. Ses objectifs sont de faire entrer les étudiants dans l’univers de l’Insa Strasbourg, tant scolairement que extra-scolairement.",state:false},
+    {id:15, content:2, title:"🔥 Partenaires"}
+  ];
+  static partners = [
+    {src:"../../assets/files/prog/partner1.png", link:"about:blank"},
+  ];
+  static menus = [
+    {src:"../../assets/files/prog/menu_1.png", spoil:new Date('2020-03-11T10:20:30Z')<new Date()},
   ];
 
   static prpaccn = [

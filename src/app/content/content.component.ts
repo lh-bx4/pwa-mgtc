@@ -21,6 +21,8 @@ export class ContentComponent implements OnInit {
   public get FLYERS() { return VarService.FLYERS; }
   public get SONGS() { return VarService.SONGS; }
   public get LYRICS() { return VarService.LYRICS; }
+  public get PARTNERS() { return VarService.PARTNERS; }
+  public get MENUS() { return VarService.MENUS; }
 
   getPath(n) {
     return VarService.FLYERS[n].spoil ? VarService.FLYERS[n].path : "";
@@ -42,6 +44,14 @@ export class ContentComponent implements OnInit {
     VarService.SECTIONS.forEach(item => {
       item.id == n ? item.state=!item.state : item.state=false;
     });
+  }
+
+  onRedirect(str:string) {
+    VarService.onRedirect(str);
+  }
+
+  whichContent(n, m):boolean {
+    return n==m;
   }
 
   //Campaign

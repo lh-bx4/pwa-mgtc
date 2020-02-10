@@ -24,43 +24,72 @@
     </div>
 
     <div id="Prog" [ngClass]="howShow(1)">
-        <ul *ngIf="false">
+        <!--terminer mise en page et ok-->
+        <ul *ngIf="true">
             <li *ngFor="let i of SECTIONS;">
                 <button id=i.id class="accordion" (click)="toggleSection(i.id)">{{i.title}}</button>
-                <div class="sectiontop" [ngClass]="{shows : i.state, hides : !i.state}">
-                    <img [src]="i.photo">
+                <div *ngIf="whichContent(i.content, 1)" class="sectiontop" [ngClass]="{shows : i.state, hides : !i.state}">
+                    <img id="photopole" [src]="i.photo">
+                    <!--tu pourra mettre la phot du programme ici à la place du paragraphe
+                    <img id="photoprogramme" [src]="i.prog">
+                    -->
                     <p>{{i.lore}}</p>
                     <video width="100%" height="auto" controls>
                         <source [src]="i.video" type="video/mp4">
                     </video> 
-                    <label class ="nv">Nouveautés</label>   
+                    <!--replace video with youtube embed-->
+                    <!--
+                    <label class ="nv">Nouveautés</label>
+                    -->
+                </div>
+                <div *ngIf="whichContent(i.content, 2)" class="sectiontop" [ngClass]="{shows : i.state, hides : !i.state}">
+                    <ul>
+                        <li *ngFor="let j of PARTNERS;">
+                            <img class="partnerimg" [src]="j.image" (click)="onRedirect(j.link)">
+                            <!--On peut rojouter un text s jamais. Dans ce cas ajouter l'attribut txt à VarService.partners
+                            <p>
+                                {{j.txt}}
+                            </p>    
+                            -->
+                        </li>
+                        <!--carte des partenaires possible avec la balise iframe-->
+                    </ul>
                 </div>
             </li>
         </ul>
-        <img src="../../assets/icons/ui_secret.png">
-        <a *ngIf="false" class="btn btn-danger" href="../../assets/files/prog/Programme.pdf" download>Programme complet</a>
+        <img *ngIf="false" src="../../assets/icons/ui_secret.png">
+        <a *ngIf="true" class="btn btn-danger" href="../../assets/files/prog/Programme.pdf" download>Programme complet</a>
     </div>
 
     <div id="Campaign" [ngClass]="howShow(2)">
-        <label *ngIf="false">Flyer de campagne en pdf (téléchargement)
+        <label *ngIf="true">Flyer de campagne en pdf (téléchargement)
             <ul>
                 <li *ngFor="let i of FLYERS;">
                     <a class="btn btn-danger" [href]="getPath(i.id)" download *ngIf="i.spoil">{{i.title}}</a>
                 </li>
             </ul>
         </label>
-        <ul id="#songs" *ngIf="false">
+        <label *ngIf="true">Menus
+            <ul id="menus" *ngIf="true">
+                <li *ngFor="let i of MENUS;">
+                    <img *ngIf="i.spoil" [src]="i.src">
+                    <img *ngIf="'!i.spoil'" src="../../assets/icons/ui_secret.png">
+                </li>
+            </ul>
+        </label>
+        <ul id="songs" *ngIf="true">
             <li *ngFor="let i of SONGS;">
                 <button id=i.id class="accordion" (click)="toggleLyrics(i.id)">{{i.title}}</button>
                 <div class="lyrics" [ngClass]="{shows : i.state, hides : !i.state}">
                     <video width="100%" height="auto" controls>
                         <source [src]="i.video" type="video/mp4">
                     </video>
+                    <!--Embed youtube video instead-->
                 </div>
             </li>
         </ul>
-        <a *ngIf="false" class="btn btn-danger" [href]="LYRICS" download>Livret chansons</a>
-        <img src="../../assets/icons/ui_secret.png">
+        <a *ngIf="true" class="btn btn-danger" [href]="LYRICS" download>Livret chansons</a>
+        <img *ngIf="false" src="../../assets/icons/ui_secret.png">
     </div>
 
     <div id="Party" [ngClass]="howShow(3)">
@@ -73,11 +102,11 @@
 
     <div id="Agenda" [ngClass]="howShow(4)">
         <!-- see https://stackoverflow.com/questions/2269192/use-a-custom-url-to-get-a-customized-printable-version-of-google-calendar-->
-        <iframe *ngIf="false" id="agenda" src="https://calendar.google.com/calendar/embed?src=kvv954969fmevuq0bi8v7dvf1k%40group.calendar.google.com&ctz=Europe%2FParis&mode=week&wkst=7&pbw=false&pda=true&dates=20200210%2F20200221" 
+        <iframe *ngIf="true" id="agenda" src="https://calendar.google.com/calendar/embed?src=kvv954969fmevuq0bi8v7dvf1k%40group.calendar.google.com&ctz=Europe%2FParis&mode=week&wkst=7&pbw=false&pda=true&dates=20200210%2F20200221" 
             width="95%" 
             height="800px" 
             frameborder="4" 
             scrolling="no"></iframe>
-        <img src="../../assets/icons/ui_secret.png">
+        <img *ngIf="false" src="../../assets/icons/ui_secret.png">
     </div>
 </div>

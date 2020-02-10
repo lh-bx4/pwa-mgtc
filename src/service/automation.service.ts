@@ -36,7 +36,6 @@ export class AutomationService {
     
 
     clearNotifs() {
-      if (VarService.OS=="iOS") return;
       this.ScheduledNotifs.forEach(el => {
         localStorage.removeItem(el.UID);
       });
@@ -65,7 +64,6 @@ export class AutomationService {
     }
 
     installNotifications():void {
-      if (VarService.OS=="iOS") return;
       //Installation
       // Set every not yet stored scheduled notifications to unseen
       this.ScheduledNotifs.forEach(el => {
@@ -74,7 +72,7 @@ export class AutomationService {
           console.log("Stored "+el.UID);
         } 
       });
-      this.printNotificationsState();
+      //this.printNotificationsState();
     }
 
   processNotifications() {
@@ -86,11 +84,9 @@ export class AutomationService {
     } else {
       console.log("! Can't push notifications since it's not allowed.");
     }
-    
   }
 
   printNotificationsState() {
-    if (VarService.OS=="iOS") return;
     this.ScheduledNotifs.forEach(el => {
       var x = el.LNState[0];
       var y = el.LNState[1];
@@ -99,7 +95,6 @@ export class AutomationService {
   }
 
   close(uid:string) {
-    if (VarService.OS=="iOS") return;
     this.MatureNotifications.forEach(el => {
       if (el.UID==uid) el.close();
     });
@@ -109,12 +104,6 @@ export class AutomationService {
     this.init(this);
     this.requestNotifications();
     this.installNotifications();
-  }
-
-  ngOnInit() {
-    //this.clearNotifs();
-    
-    
   }
 
 }
@@ -128,7 +117,7 @@ export class LocalNotif {
   public body;
 
   constructor(tl:string, dt:Date, txt:string, img:string='') {
-    if (VarService.OS=="iOS") return;
+    
     this.title=tl;
     this.tag = dt.toUTCString();
     this.body=txt;
@@ -148,17 +137,15 @@ export class LocalNotif {
 
   // used to detect if a notifiaction can be displayed or not
   get LNState() {
-    if (VarService.OS=="iOS") return;
     var x = this.date<new Date();
     var y = localStorage.getItem(this.UID)=='false';
     return [x,y];
   }
   
   isMature():boolean {
-    if (VarService.OS=="iOS") return;
     var x = this.LNState;
     var y = x[0] && x[1];
-    console.log(y);
+    //console.log(y);
     return y;
   }
 
@@ -170,7 +157,6 @@ export class LocalNotif {
   }
 
   close() {
-    if (VarService.OS=="iOS") return;
     localStorage.setItem(this.UID, 'true');
   }
 
