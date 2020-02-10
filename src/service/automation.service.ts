@@ -8,7 +8,6 @@ export class AutomationService {
 
   // return most recent notifications
   get MatureNotifications() {
-    if (VarService.OS=="iOS") return [];
     var ret:LocalNotif[]=[];
     this.ScheduledNotifs.forEach(el => {
       if (el.isMature()) ret = [el].concat(ret);
@@ -33,8 +32,7 @@ export class AutomationService {
   ];
   
   private doNotify:boolean = false;
-    
-
+  
     clearNotifs() {
       this.ScheduledNotifs.forEach(el => {
         localStorage.removeItem(el.UID);
@@ -42,8 +40,10 @@ export class AutomationService {
     }
 
     requestNotifications():void {
-      if (VarService.OS=="iOS") return;
-      console.log("Permissions:"+Notification.permission);
+
+      if (!VarService.NA) return;
+
+      //console.log("Permissions:"+Notification.permission);
       switch (Notification.permission) {
         case "denied":console.log("Notifications Denied");
         case "granted":console.log("Notifications Granted");
@@ -76,7 +76,7 @@ export class AutomationService {
     }
 
   processNotifications() {
-    if (VarService.OS=="iOS") return;
+    if (!VarService.NA) return;
     if (Notification.permission=="granted") {
       this.ScheduledNotifs.forEach(el => {
         if (el.isMature()) el.push();
@@ -152,7 +152,7 @@ export class LocalNotif {
   get UID() { return this.tag+":"+this.title; }
 
   push() {
-    if (VarService.OS=="iOS") return;
+    if (!VarService.NA) return;
     if (this.isMature()) new Notification(this.title, this.options);
   }
 

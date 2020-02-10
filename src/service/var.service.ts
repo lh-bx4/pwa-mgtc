@@ -19,7 +19,8 @@ export class VarService {
   public static get ICO() { return "../../assets/files/team/polo/icon-72x72.png"}
   public static get BDG() { return "../../assets/icons/ui_forum.png"}
 
-  private static OpSys;
+  private static NotifyAble:boolean = true;
+  //private static OpSys;
   private static scrH:number;
   private static scrW:number;
   private static mH:number;
@@ -27,10 +28,9 @@ export class VarService {
   private static readonly mC:number = 5;
   private static mclrs = ["#A62C23","#8C251D","#661B15","#4d1410","#330D0B","#2B0906"];
 
-  public static get OS():string {
-    return this.OpSys;
-  }
+  //public static get OS():string { return this.OpSys;}
   public static get SCRH():number { return this.scrH; }
+  public static get NA():boolean { return this.NotifyAble; }
   public static get SCRW():number { return this.scrW; }
   public static get NTH():number { return this.ntH; }
   public static get MH():number { return this.mH; }
@@ -51,16 +51,21 @@ export class VarService {
   }
 
   init() {
-    VarService.OpSys=this.getMobileOperatingSystem();
+    //VarService.OpSys=this.getMobileOperatingSystem();
     this.onResize();
     // get party state in terms of date
   }
 
-  isCompatible() {
-    // compatibility error on messenger
+  static CheckCompatibility() {
+    try {
+      Notification;
+    } catch (error) {
+      console.log("! This OS doesn't handle notifications.");
+      VarService.NotifyAble=false;
+    }
   }
 
-  getMobileOperatingSystem() {
+  /*getMobileOperatingSystem() {
     var userAgent = navigator.userAgent || navigator.vendor;
   
         // Windows Phone must come first because its UA also contains "Android"
@@ -81,7 +86,7 @@ export class VarService {
       }
   
       return "unknown";
-  }
+  }*/
 
   static onRedirect(str:string) {
     alert("Vous allez être redirigé vers "+str);
@@ -90,6 +95,7 @@ export class VarService {
 
   constructor() {
     this.init();
+    VarService.CheckCompatibility();
   }
 
   private static members = [
