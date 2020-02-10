@@ -8,6 +8,7 @@
     (icon / svg anim)
 -->
 <div id="page" [ngStyle] = "{'background-color':clr, 'height':getH(), 'transition-delay':getTransitionDelay(), 'border-top-left-radius':pageBR, 'border-top-right-radius':pageBR}">
+    
     <div [ngClass]="howShow(0)"  id="Team">
         <label class="pres">
         <label class="titre">Le mot du président</label>
@@ -27,20 +28,23 @@
         <!--terminer mise en page et ok-->
         <ul *ngIf="true">
             <li *ngFor="let i of SECTIONS;">
-                <button id=i.id class="accordion" (click)="toggleSection(i.id)">{{i.title}}</button>
+                <button  [ngStyle]="{'margin':i.id==15 ? '20px 0 0 0':'0'}" id=i.id class="accordion" (click)="toggleSection(i.id)">{{i.title}}</button>
                 <div *ngIf="whichContent(i.content, 1)" class="sectiontop" [ngClass]="{shows : i.state, hides : !i.state}">
                     <img id="photopole" [src]="i.photo">
-                    <!--tu pourra mettre la phot du programme ici à la place du paragraphe
-                    <img id="photoprogramme" [src]="i.prog">
-                    -->
                     <p>{{i.lore}}</p>
-                    <video width="100%" height="auto" controls>
-                        <source [src]="i.video" type="video/mp4">
-                    </video> 
-                    <!--replace video with youtube embed-->
-                    <!--
-                    <label class ="nv">Nouveautés</label>
-                    -->
+                    <ul>
+                        <li *ngFor="let j of i.prog.new;">
+                            <h3>{{j.t}}</h3>
+                            <label>{{j.l}}</label>
+                        </li>
+                        <li *ngFor="let j of i.prog.reuse;">
+                            <h3>{{j.t}}</h3>
+                            <label>{{j.l}}</label>
+                        </li>
+                    </ul>
+                    
+                    <iframe width="100%" height="auto" [src]="i.video"></iframe>
+                    
                 </div>
                 <div *ngIf="whichContent(i.content, 2)" class="sectiontop" [ngClass]="{shows : i.state, hides : !i.state}">
                     <ul>
@@ -49,7 +53,7 @@
                             <!--On peut rojouter un text s jamais. Dans ce cas ajouter l'attribut txt à VarService.partners
                             <p>
                                 {{j.txt}}
-                            </p>    
+                            </p>
                             -->
                         </li>
                         <!--carte des partenaires possible avec la balise iframe-->
