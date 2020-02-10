@@ -29,10 +29,7 @@
             <li *ngFor="let i of SECTIONS;">
                 <button id=i.id class="accordion" (click)="toggleSection(i.id)">{{i.title}}</button>
                 <div *ngIf="whichContent(i.content, 1)" class="sectiontop" [ngClass]="{shows : i.state, hides : !i.state}">
-                    <img id="photopole" [src]="i.photo">
-                    <!--tu pourra mettre la phot du programme ici à la place du paragraphe
-                    <img id="photoprogramme" [src]="i.prog">
-                    -->
+                    <img id="photopole" [src]="i.pole">
                     <p>{{i.lore}}</p>
                     <video width="100%" height="auto" controls>
                         <source [src]="i.video" type="video/mp4">
@@ -40,6 +37,10 @@
                     <!--replace video with youtube embed-->
                     <!--
                     <label class ="nv">Nouveautés</label>
+                    -->
+                    <img id="prog" [src]="i.img">
+                    <!--tu pourra mettre la phot du programme ici à la place du paragraphe
+                    <img id="photoprogramme" [src]="i.prog">
                     -->
                 </div>
                 <div *ngIf="whichContent(i.content, 2)" class="sectiontop" [ngClass]="{shows : i.state, hides : !i.state}">
@@ -62,7 +63,7 @@
     </div>
 
     <div id="Campaign" [ngClass]="howShow(2)">
-        <label *ngIf="true">Flyer de campagne en pdf (téléchargement)
+        <label *ngIf="true">Flyer de campagne en pdf
             <ul>
                 <li *ngFor="let i of FLYERS;">
                     <a class="btn btn-danger" [href]="getPath(i.id)" download *ngIf="i.spoil">{{i.title}}</a>
@@ -72,8 +73,9 @@
         <label *ngIf="true">Menus
             <ul id="menus" *ngIf="true">
                 <li *ngFor="let i of MENUS;">
-                    <img *ngIf="i.spoil" [src]="i.src">
-                    <img *ngIf="'!i.spoil'" src="../../assets/icons/ui_secret.png">
+                    <img *ngIf="spoil(i.spoil)" [src]="i.src">
+                    <p class="txt" *ngIf="spoil(i.spoil)">photo non contractuelle</p>
+                    <img *ngIf="spoil(!i.spoil)" src="../../assets/icons/ui_secret.png">
                 </li>
             </ul>
         </label>
@@ -84,6 +86,13 @@
                     <video width="100%" height="auto" controls>
                         <source [src]="i.video" type="video/mp4">
                     </video>
+                    <label>
+                        <ul *ngFor="let j of i.parole;">
+                            <li>{{j}}</li>
+                        </ul>
+                    </label>
+                    
+                    <!--label>{{i.parole}}</label>
                     <!--Embed youtube video instead-->
                 </div>
             </li>

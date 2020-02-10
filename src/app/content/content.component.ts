@@ -39,6 +39,10 @@ export class ContentComponent implements OnInit {
     this.pageBR = s ? "0" : "50%"; 
   }
 
+  spoil(b) {
+    return b;
+  }
+
   //Program
   toggleSection(n:number) {
     VarService.SECTIONS.forEach(item => {

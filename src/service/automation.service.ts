@@ -25,10 +25,12 @@ export class AutomationService {
   }
 
   private ScheduledNotifs:LocalNotif[] = [
-    new LocalNotif("Viens défieR les dieux !", new Date('2020-02-11T10:00:00Z'), "Si tu veux tenteR ta chance, inscRis-toi !"),
-    new LocalNotif("PouR les paResseux...", new Date('2020-02-13T14:00:00Z'), "PRofite du SAD des Magell'Antic !"),
+    new LocalNotif("Bienvenue !", new Date('2020-02-11T10:00:00Z'), "Passes faire un tour sur le site pour découvrir ce que les Magell'Antic te réservent !"),
+    new LocalNotif("Viens défieR les dieux !", new Date('2020-02-11T12:00:00Z'), "Si tu veux tenteR ta chance, inscRis-toi dans le hall toute la jouRnée !"),
+    new LocalNotif("PouR les paResseux...", new Date('2020-02-13T14:00:00Z'), "PRofite du SAD des Magell'Antic !" , "../assets/files/notif/SAD.png"),
     new LocalNotif("Antikitch", new Date('2020-02-13T20:30:00Z'), "Rejoins-nous pouR une soiRée toute en finesse."),
-    new LocalNotif("Besoin d'une pause ?", new Date('2020-02-17T10:00:00Z'), "PRofite du voyage de plaisance oRganisé paR Magellopolis !")
+    new LocalNotif("Besoin d'une pause ?", new Date('2020-02-17T10:00:00Z'), "PRofite du voyage de plaisance oRganisé paR Magellopolis !"),
+    new LocalNotif("R", new Date('2020-02-19T10:00:00Z'), "Les Magell'Antic font leur féria !")
   ];
   
   private doNotify:boolean = false;
