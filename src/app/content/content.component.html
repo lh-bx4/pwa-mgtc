@@ -33,13 +33,15 @@
                     <img id="photopole" [src]="i.pole">
                     <p>{{i.lore}}</p>
                     <ul>
+                        <label class=t1>Nouveautés</label>
                         <li *ngFor="let j of i.prog.new;">
-                            <h3>{{j.t}}</h3>
-                            <label>{{j.l}}</label>
+                            <label class=titre>{{j.t}}</label>
+                            <label class=txtpr>{{j.l}}</label>
                         </li>
+                        <label class=t1>Reconduites</label>
                         <li *ngFor="let j of i.prog.reuse;">
-                            <h3>{{j.t}}</h3>
-                            <label>{{j.l}}</label>
+                            <label class=titre>{{j.t}}</label>
+                            <label class=txtpr>{{j.l}}</label>
                         </li>
                     </ul>
                     <!--iframe width="100%" height="auto" [src]="Sanatize(i.video)" 
