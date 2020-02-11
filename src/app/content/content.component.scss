@@ -127,12 +127,31 @@
                     p {
                         display: block;
                         color: #efefef;
+                        font-style: italic;
                         margin: 0;
                         padding: 5px;
                         top:0px;
                         text-justify: inter-word;
                     }
                     .videopole {}
+
+                    .t1{
+                        font-weight: bolder;
+                        color: #f7f7f7;
+                        font-size: larger;
+                    }
+
+                    .txtpr{
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-size: small;
+                    }
+
+                    .titre{
+                        font-weight: bolder;
+                        color: #000000;
+                        font-size: medium;
+                    }
+
                     .nv{
                         font-size: medium;
                         font-family: Arial, Helvetica, sans-serif;
