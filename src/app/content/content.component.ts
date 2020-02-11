@@ -31,7 +31,7 @@ export class ContentComponent implements OnInit {
 
   howShow(n) { return n==this.current ? 'showc' : 'hidec'; }
   getTransitionDelay() { return (this.shown ? 0.5 : 0).toString()+"s"; }
-  public getH() { return (this.shown ? VarService.PH : 0).toString()+"px"; }
+  public getH() { return (this.shown ? VarService.PH+1 : 0).toString()+"px"; }
   
   public onPrepare(s:boolean, n:number, c:string) {
     this.shown=s;
@@ -53,7 +53,7 @@ export class ContentComponent implements OnInit {
 
   onRedirect(str:string) {
     VarService.onRedirect(str);
-  }
+  }0
 
   whichContent(n, m):boolean {
     return n==m;

@@ -44,7 +44,7 @@
                             <label class=txtpr>{{j.l}}</label>
                         </li>
                     </ul>
-                    
+
                     <!--iframe width="100%" height="auto" [src]="Sanatize(i.video)" 
                     frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe-->
                     <!--p *ngIf="true" class="btn btn-danger" (click)="onRedirect(i.video)">Video Presnetation Points</a-->
@@ -52,7 +52,7 @@
                 <div *ngIf="whichContent(i.content, 2)" class="sectiontop" [ngClass]="{shows : i.state, hides : !i.state}">
                     <ul>
                         <li *ngFor="let j of PARTNERS;">
-                            <img class="partnerimg" [src]="j.image" (click)="onRedirect(j.link)">
+                            <img class="partnerimg" [src]="j.src" (click)="onRedirect(j.link)">
                         </li>
                         <!--carte des partenaires possible avec la balise iframe-->
                     </ul>
@@ -112,11 +112,11 @@
 
     <div id="Agenda" [ngClass]="howShow(4)">
         <!-- see https://stackoverflow.com/questions/2269192/use-a-custom-url-to-get-a-customized-printable-version-of-google-calendar-->
-        <iframe *ngIf="true" id="agenda" src="https://calendar.google.com/calendar/embed?src=kvv954969fmevuq0bi8v7dvf1k%40group.calendar.google.com&ctz=Europe%2FParis&mode=week&wkst=7&pbw=false&pda=true&dates=20200210%2F20200221" 
+        <iframe *ngIf="false" id="agenda" src="https://calendar.google.com/calendar/embed?src=kvv954969fmevuq0bi8v7dvf1k%40group.calendar.google.com&ctz=Europe%2FParis&mode=week&wkst=7&pbw=false&pda=true&dates=20200210%2F20200221" 
             width="95%" 
             height="800px" 
             frameborder="4" 
             scrolling="no"></iframe>
-        <img *ngIf="false" src="../../assets/icons/ui_secret.png">
+        <img *ngIf="true" src="../../assets/icons/ui_secret.png">
     </div>
 </div>

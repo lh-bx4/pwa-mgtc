@@ -390,7 +390,13 @@ export class VarService {
   ];
 
   static partners = [
-    {src:"../../assets/files/prog/partner1.png", link:"about:blank"},
+    {src:"../assets/files/prog/biocoop.png", link:"https://www.biocoop.fr/"},
+    {src:"../assets/files/prog/bomarche.png", link:"https://www.bomarche.fr/fr/"},
+    {src:"../assets/files/prog/csa.jpeg", link:"http://www.csamecanique.com/"},
+    {src:"../assets/files/prog/engie.png", link:"https://www.engie.com/"},
+    {src:"../assets/files/prog/pumpkin.png", link:"https://pumpkin-app.co/"},
+    {src:"../assets/files/prog/stapem-offshore.png", link:"https://www.stapem-offshore.com/"},
+
   ];
   static menus = [
     {src:"../assets/files/campaign/Menu-J1.png", spoil:new Date('2020-02-09T06:20:30Z')<new Date()},
