@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { MenuComponent } from "../menu/menu.component";
 import { VarService } from 'src/service/var.service';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-content',
@@ -75,14 +76,20 @@ export class ContentComponent implements OnInit {
     "Secret !";
     alert(str);
   }
+
   getPartySrc(n:number) {
     return VarService.PARTYS[n].spoil ? VarService.PARTYS[n].src : "../../assets/icons/ui_secret.png"; 
   }
 
-  // Calendar - done
+  /*Sanatize(src:string) {
+    return this.sanatizer.bypassSecurityTrustResourceUrl(src);
+  }*/
 
-  constructor() {
+  // Calendar - done
+  sanatizer:DomSanitizer;
+  constructor(private sntz:DomSanitizer) {
     MenuComponent.AppendContent(this);
+    this.sanatizer=sntz;
   }
 
   ngOnInit() {

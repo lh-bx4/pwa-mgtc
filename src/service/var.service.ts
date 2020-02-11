@@ -9,7 +9,7 @@ export class VarService {
   onResize(event?){
     VarService.scrH=window.innerHeight;
     VarService.scrW=window.innerWidth;
-    VarService.ntH=(VarService.scrH-VarService.ntH)%VarService.mC+VarService.ntH;
+    VarService.ntH=(VarService.scrH-VarService.ntH)%VarService.mC+VarService.ntH+1;
     VarService.mH=(VarService.scrH-VarService.ntH)/VarService.mC;
     console.log("Resized [SCR::"+VarService.SCRW+":"+VarService.SCRH+"] [NTH::"+VarService.NTH+" | MH:"+VarService.MH+"]");
   }
@@ -142,7 +142,7 @@ export class VarService {
   ];
   static sections = [
 
-    {id:0, content:1, title:"Pôle A&I", pole:"../assets/files/prog/Pole-AI.png", video:'https://youtu.be/embed/rUAwl-PiZaA', prog:{
+    {id:0, content:1, title:"Pôle A&I", pole:"../assets/files/prog/Pole-AI.png", video:'https://youtu.be/rUAwl-PiZaA', prog:{
       new:[ 
         {t:"title", l:"lore"},
       ],
@@ -150,7 +150,7 @@ export class VarService {
         {t:"title", l:"lore"},
       ]
     }, lore:"Le pôle Arts & Industries a pour objectif de faire se rencontrer les étudiants de l’INSA Strasbourg et les membres de l’association Arts & Industries", state:false},
-    {id:1, content:1, title:"Pôle Accueil", pole:"../assets/files/prog/Pole-acceuil.png", video:'https://youtu.be/embed/sH4v37fCQ0o', prog:{
+    {id:1, content:1, title:"Pôle Accueil", pole:"../assets/files/prog/Pole-acceuil.png", video:'https://youtu.be/sH4v37fCQ0o', prog:{
       new:[
         {t:"title", l:"lore"},
       ],
@@ -158,7 +158,7 @@ export class VarService {
         {t:"title", l:"lore"},
       ]
     }, lore:"Accueillir, aider, rencontrer, rigoler : telle est la devise du Pôle Acueil !",state:false},
-    {id:2, content:1, title:"Pôle AEI", pole:"../assets/files/prog/pole-AEI.png", video:'https://youtu.be/embed/oGeEUYW9CKs', prog:{
+    {id:2, content:1, title:"Pôle AEI", pole:"../assets/files/prog/pole-AEI.png", video:'https://youtu.be/oGeEUYW9CKs', prog:{
       new:[
         {t:"title", l:"lore"},
       ],
@@ -166,7 +166,7 @@ export class VarService {
         {t:"title", l:"lore"},
       ]
     }, lore:"Le pôle AEI a pour rôle de faire le liens entre le BDE de l'insa de Strasbourg et les autres INSA. Il prend place au sein du bureau de gestion de l'Association des Elèves des INSA. Association qui a pour but de rapprocher les élèves au travers d'événements inter-INSA mais aussi de représenter les élèves du groupe INSA.",state:false},
-    {id:3, content:1, title:"Pôle Bureau",  pole:"../assets/files/prog/Pole-Bureau.png", video:'https://www.youtube.com/embed/pjwGpx-1_Q8', prog:{
+    {id:3, content:1, title:"Pôle Bureau",  pole:"../assets/files/prog/Pole-Bureau.png", video:'https://www.youtube.com/pjwGpx-1_Q8', prog:{
       new:[
         {t:"title", l:"lore"},
       ],
@@ -174,7 +174,7 @@ export class VarService {
         {t:"title", l:"lore"},
       ]
     }, lore:"L’objectif principal du bureau est d’assurer la cohésion et la logistique entre les différents pôles, l’administration et les organismes extérieurs à l’INSA Strasbourg.",state:false},
-    {id:4, content:1, title:"Pôle Club", pole:"../assets/files/prog/Pole-club.png", video:'https://youtu.be/embed/B5aHnsn4zcA', prog:{
+    {id:4, content:1, title:"Pôle Club", pole:"../assets/files/prog/Pole-club.png", video:'https://youtu.be/B5aHnsn4zcA', prog:{
       new:[
         {t:"title", l:"lore"},
       ],
@@ -182,7 +182,7 @@ export class VarService {
         {t:"title", l:"lore"},
       ]
     }, lore:"Notre mission : promouvoir les clubs de l'INSA et faire le lien entre l'administration, les élèves et les clubs !",state:false},
-    {id:5, content:1, title:"Pôle Com", pole:"../assets/files/prog/Pole-Com.png", video:'https://youtu.be/embed/pjwGpx-1_Q8', prog:{
+    {id:5, content:1, title:"Pôle Com", pole:"../assets/files/prog/Pole-Com.png", video:'https://youtu.be/pjwGpx-1_Q8', prog:{
       new:[
         {t:"title", l:"lore"},
       ],
@@ -190,7 +190,7 @@ export class VarService {
         {t:"title", l:"lore"},
       ]
     }, lore:"Cette anée tu auras le plaisir de communiquer avec Hector, qui pourra facilement t'aiguiller dans ta quête d'information. Et grâce à instagram tu pourras te tenir informé en images/vidéos sur toute l'actu de l'insa. Nous, le pôle com rouge seront la pour faciliter la communication des élèves vers ton BDE.",state:false},
-    {id:6, content:1, title:"Pôle Culture", pole:"../assets/files/prog/Pole-culture.png", video:'https://youtu.be/embed/OxwY90T927o', prog:{
+    {id:6, content:1, title:"Pôle Culture", pole:"../assets/files/prog/Pole-culture.png", video:'https://youtu.be/OxwY90T927o', prog:{
       new:[
         {t:"title", l:"lore"},
       ],
@@ -198,7 +198,7 @@ export class VarService {
         {t:"title", l:"lore"},
       ]
     }, lore:"Si t’as envie d’aller au théâtre, de faire une initiation au Self-défense ou d’assister à un match de hockey, le pôle Culture est fait pour toi !",state:false},
-    {id:7, content:1, title:"Pôle FIP", pole:"../assets/files/prog/Pole-Fip.png", video:'https://youtu.be/embed/3wik3rshVLs', prog:{
+    {id:7, content:1, title:"Pôle FIP", pole:"../assets/files/prog/Pole-Fip.png", video:'https://youtu.be/3wik3rshVLs', prog:{
       new:[
         {t:"title", l:"lore"},
       ],
@@ -206,7 +206,7 @@ export class VarService {
         {t:"title", l:"lore"},
       ]
     }, lore:"Le pôle FIP est là pour représenter les élèves en alternance. Il est aussi là pour les encourager à participer aux événements organisés par le BDE et à la vie associative de l’école.",state:false},
-    {id:8, content:1, title:"Pôle International", pole:"../assets/files/prog/Pole-international.png", video:'https://youtu.be/embed/pjwGpx-1_Q8', prog:{
+    {id:8, content:1, title:"Pôle International", pole:"../assets/files/prog/Pole-international.png", video:'https://youtu.be/pjwGpx-1_Q8', prog:{
       new:[
         {t:"title", l:"lore"},
       ],
@@ -214,7 +214,7 @@ export class VarService {
         {t:"title", l:"lore"},
       ]
     }, lore:"Accueille les internationnaux et encourae à la mobilité, le pôle internationnal ouvre ton esprit !",state:false},
-    {id:9, content:1, title:"Pôle Multi", pole:"../assets/files/prog/pole-multi.png", video:'https://youtu.be/embed/WzbO_abt82s', prog:{
+    {id:9, content:1, title:"Pôle Multi", pole:"../assets/files/prog/pole-multi.png", video:'https://youtu.be/WzbO_abt82s', prog:{
       new:[
         {t:"title", l:"lore"},
       ],
@@ -222,7 +222,7 @@ export class VarService {
         {t:"title", l:"lore"},
       ]
     }, lore:"Le Pôle multi sert à développer les outils nécessaire au bons fonctionnement du BDE. Les objectifs principaux sont la pérennisation de l’application du BDE, l’ajout de fonctionnalité à l’application… +- de détails comme vous voulez.",state:false},
-    {id:10, content:1, title:"Pôle Partenariat", pole:"../assets/files/prog/pole-parteneriat.png", video:'https://youtu.be/embed/7zU4QJBFoCI', prog:{
+    {id:10, content:1, title:"Pôle Partenariat", pole:"../assets/files/prog/pole-parteneriat.png", video:'https://youtu.be/7zU4QJBFoCI', prog:{
       new:[
         {t:"title", l:"lore"},
       ],
@@ -230,7 +230,7 @@ export class VarService {
         {t:"title", l:"lore"},
       ]
     }, lore:"Le rôle majeur du pôle partenariat est d'entretenir les partenaires du BDE afin de faciliter la vie des étudiants et de soutenir le BDE par des aides financières.",state:false},
-    {id:11, content:1, title:"Pôle Prev DD", pole:"../assets/files/prog/Pole-Sauvegarde.png", video:'https://youtu.be/embed/pnGwZ3Dbe3w', prog:{
+    {id:11, content:1, title:"Pôle Prev DD", pole:"../assets/files/prog/Pole-Sauvegarde.png", video:'https://youtu.be/pnGwZ3Dbe3w', prog:{
       new:[
         {t:"title", l:"lore"},
       ],
@@ -238,7 +238,7 @@ export class VarService {
         {t:"title", l:"lore"},
       ]
     }, lore:"Le pôle prévention permet de sensibiliser les élèves à des thématiques diverses!",state:false},
-    {id:12, content:1, title:"Pôle Réseau", pole:"../assets/files/prog/POLE_RÉSEAU.png", video:'https://youtu.be/embed/zC0pCi2dseI', prog:{
+    {id:12, content:1, title:"Pôle Réseau", pole:"../assets/files/prog/POLE_RÉSEAU.png", video:'https://youtu.be/zC0pCi2dseI', prog:{
       new:[
         {t:"title", l:"lore"},
       ],
@@ -246,7 +246,7 @@ export class VarService {
         {t:"title", l:"lore"},
       ]
     }, lore:"Le pole Réseau est là pour connecter l'INSA aux autres écoles francaises.",state:false},
-    {id:13, content:1, title:"Pôle Soirées", pole:"../assets/files/prog/Pole-soiree.png", video:'https://youtu.be/embed/HUNDOEz_K_0', prog:{
+    {id:13, content:1, title:"Pôle Soirées", pole:"../assets/files/prog/Pole-soiree.png", video:'https://youtu.be/HUNDOEz_K_0', prog:{
       new:[
         {t:"title", l:"lore"},
       ],
@@ -254,7 +254,7 @@ export class VarService {
         {t:"title", l:"lore"},
       ]
     }, lore:"Le rôle principal du pôle soirée est d’organiser des évènements festifs et distrayants pour les élèves de l’école. De plus, il permet de mettre en avant les étudiants de l’école de manière singulière avec des évènements ayant pour vocation une ouverture musicale mais aussi culturelle.",state:false},
-    {id:14, content:1, title:"Pôle STH", pole:"../assets/files/prog/Pole-STH.png", video:'https://youtu.be/embed/ToMrrK3Um64', prog:{
+    {id:14, content:1, title:"Pôle STH", pole:"../assets/files/prog/Pole-STH.png", video:'https://youtu.be/ToMrrK3Um64', prog:{
       new:[
         {t:"title", l:"lore"},
       ],
@@ -288,14 +288,14 @@ export class VarService {
     {id:3, title:"Ô Magell’antic", parole: ["Magell’antic est là pour vous","La coeur ouvert un peu beaucoup","On a envie d’être présent pour n’importe qui","N’importe qui, on s’est dit toi","Alors vraiment n’hésites pas","T’as plus qu’a rejoindre la cité pour kiffer l’année","","Oooooooooo Magell’antic ! lala la lala","Oooooooooooo Magell’antic ! lala la lalala","Au grands jeux, aux soirées","A midi ou à  minuit","Vnez voir c’quils vous ont préparés les Magell’antic","x2"]},
     {id:4, title: "N’hésite pas", parole:["Non n’hésite pas, vote Bordeaux car c’est le bon choix (x4)","Oui nous c’est Magell’Antic","Et y a du bruit y a d’la zik","Du lundi au samedi","Et Nanani Nanana","Ça va être la folie","Et pour un an si tu veux","Qu’on chauffe le BDE","Prends le papier viens voter !"]},
     {id:5, title: "J’suis Rouge", parole:["J’suis rouge, ","J’y crois pas comment j’suis rouge, ","La liste parfaite, chez nous ça bouge ! ","Voici venir les rouges ","","Laisse nous nous présenter nous c’est Magell’antic !","La liste rouge, oui la seule et l’unique !","Présents ensemble matin, midi et soir pour toi,  ","Les Magell’antiques sont là,","Et la Grèce s’ouvre à toi !","Tellement chauds qu’à peine arrivés on t’offre déjà à manger, ","Pour ta pause de 10h, on est là pour t’faire rigoler ","Ce midi te régaler","Et ce soir te faire rêver ","Alors à la fin d’ta journée, franchement, t’auras kiffé !","","J’suis rouge, ","J’y crois pas comment j’suis rouge, ","La liste parfaite, chez nous ça bouge ! ","Voici venir les rouges !","J’suis rouge, ","J’y crois pas comment j’suis rouge, ","La liste parfaite, chez nous ça bouge ! ","Voici venir les rouges !"]},
-    {id:6, title:"Chorée", parole:"", state:false}
+    //{id:6, title:"Chorée", parole:"", state:false}
   ];
   static lyrics = "../../assets/files/campaign/Chansons.pdf"
   static partys = [
-    {name:"Soft 1", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_soft_1.png", spoil:new Date('2020-03-11T10:20:30Z')<new Date()},
-    {name:"Hard 1", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_hard_1.png", spoil:new Date('2020-03-11T10:20:30Z')<new Date()},
-    {name:"Soft 2", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_soft_2.png", spoil:new Date('2020-03-11T10:20:30Z')<new Date()},
-    {name:"Hard 2", date:"00/00/00 hh:mm", theme:"Jeux", src:"../../assets/files/party/party_hard_2.png", spoil:new Date('2020-03-11T10:20:30Z')<new Date()}
+    {name:"Soft 1", date:"11/02/20 19:30", theme:"Jeux Olympique", src:"../../assets/files/party/party_soft_1.png", spoil:new Date('2020-02-11T10:20:30Z')<new Date()},
+    {name:"Hard 1", date:"13/02/20 hh:mm", theme:"Anti'Kitsch", src:"../../assets/files/party/party_hard_1.png", spoil:new Date('2020-02-13T10:20:30Z')<new Date()},
+    {name:"Soft 2", date:"17/02/20 hh:mm", theme:"Jeux Olympique !", src:"../../assets/files/party/party_soft_2.png", spoil:new Date('2020-02-17T10:20:30Z')<new Date()},
+    {name:"Hard 2", date:"19/02/20 hh:mm", theme:"FeRia Antique", src:"../../assets/files/party/party_hard_2.png", spoil:new Date('2020-02-19T10:20:30Z')<new Date()}
   ];
   // TODO links !
   static links = [

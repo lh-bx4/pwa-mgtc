@@ -25,7 +25,6 @@
     </div>
 
     <div id="Prog" [ngClass]="howShow(1)">
-        <!--terminer mise en page et ok-->
         <ul *ngIf="true">
             <li *ngFor="let i of SECTIONS;">
                 <button  [ngStyle]="{'margin':i.id==15 ? '20px 0 0 0':'0'}" id=i.id class="accordion" (click)="toggleSection(i.id)">{{i.title}}</button>
@@ -43,19 +42,14 @@
                             <label>{{j.l}}</label>
                         </li>
                     </ul>
-                    
-                    <!--iframe width="100%" height="auto" [src]="i.video"></iframe-->
-                    
+                    <!--iframe width="100%" height="auto" [src]="Sanatize(i.video)" 
+                    frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe-->
+                    <!--p *ngIf="true" class="btn btn-danger" (click)="onRedirect(i.video)">Video Presnetation Points</a-->
                 </div>
                 <div *ngIf="whichContent(i.content, 2)" class="sectiontop" [ngClass]="{shows : i.state, hides : !i.state}">
                     <ul>
                         <li *ngFor="let j of PARTNERS;">
                             <img class="partnerimg" [src]="j.image" (click)="onRedirect(j.link)">
-                            <!--On peut rojouter un text s jamais. Dans ce cas ajouter l'attribut txt à VarService.partners
-                            <p>
-                                {{j.txt}}
-                            </p>
-                            -->
                         </li>
                         <!--carte des partenaires possible avec la balise iframe-->
                     </ul>
@@ -87,21 +81,21 @@
             <li *ngFor="let i of SONGS;">
                 <button id=i.id class="accordion" (click)="toggleLyrics(i.id)">{{i.title}}</button>
                 <div class="lyrics" [ngClass]="{shows : i.state, hides : !i.state}">
-                    <video width="100%" height="auto" controls>
+                    <!--video width="100%" height="auto" controls>
                         <source [src]="i.video" type="video/mp4">
-                    </video>
+                    </video-->
                     <label>
                         <ul *ngFor="let j of i.parole;">
                             <li>{{j}}</li>
                         </ul>
                     </label>
                     
-                    <!--label>{{i.parole}}</label>
-                    <!--Embed youtube video instead-->
+                    <!--label>{{i.parole}}</label-->
+                    
                 </div>
             </li>
         </ul>
-        <a *ngIf="true" class="btn btn-danger" [href]="LYRICS" download>Livret chansons</a>
+        <a *ngIf="false" class="btn btn-danger" [href]="LYRICS" download>Livret chansons</a>
         <img *ngIf="false" src="../../assets/icons/ui_secret.png">
     </div>
 
