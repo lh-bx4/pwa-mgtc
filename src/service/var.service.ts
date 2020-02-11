@@ -404,7 +404,7 @@ export class VarService {
   ];
 
   static flyers = [
-    {id:0, title:"Jour 1", path:"../../assets/files/campaign/FLYER-MGTC-11.02.pdf", spoil:'2020-02-11T06:20:30Z'},
+    {id:0, title:"Jour 1", path:"../../assets/files/campaign/FLYER-MGTC-11.02.pdf", spoil:'2020-02-11T07:50:30Z'},
     {id:1, title:"Jour 2", path:"../../assets/files/campaign/FLYER-MGTC-13.02.pdf", spoil:'2020-02-13T06:20:30Z'},
     {id:2, title:"Jour 3", path:"../../assets/files/campaign/FLYER-MGTC-17.02.pdf", spoil:'2020-02-17T06:20:30Z'},
     {id:3, title:"Jour 4", path:"../../assets/files/campaign/FLYER-MGTC-19.02.pdf", spoil:'2020-02-19T06:20:30Z'}

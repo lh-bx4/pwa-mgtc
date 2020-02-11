@@ -67,7 +67,7 @@
         <label *ngIf="true">Flyer de campagne en pdf
             <ul>
                 <li *ngFor="let i of FLYERS;">
-                    <a class="btn btn-danger" [href]="getPath(i.id)" download *ngIf="i.spoil">{{i.title}}</a>
+                    <a class="btn btn-danger" [href]="getPath(i.id)" download *ngIf="spoil(i.spoil)">{{i.title}}</a>
                 </li>
             </ul>
         </label>
@@ -76,7 +76,7 @@
                 <li *ngFor="let i of MENUS;">
                     <img *ngIf="spoil(i.spoil)" [src]="i.src">
                     <p class="txt" *ngIf="spoil(i.spoil)">photo non contractuelle</p>
-                    <img *ngIf="spoil(!i.spoil)" src="../../assets/icons/ui_secret.png">
+                    <!--img *ngIf="spoil(!i.spoil)" src="../../assets/icons/ui_secret.png"-->
                 </li>
             </ul>
         </label>

@@ -26,7 +26,7 @@ export class ContentComponent implements OnInit {
   public get MENUS() { return VarService.MENUS; }
 
   getPath(n) {
-    return spoil(VarService.FLYERS[n].spoil) ? VarService.FLYERS[n].path : "";
+    return this.spoil(VarService.FLYERS[n].spoil) ? VarService.FLYERS[n].path : "";
   }
 
   howShow(n) { return n==this.current ? 'showc' : 'hidec'; }
@@ -41,6 +41,7 @@ export class ContentComponent implements OnInit {
   }
 
   spoil(dt:string):boolean {
+    console.log(dt+"<"+(new Date()).toUTCString());
     return new Date(dt)<new Date();
   }
 
