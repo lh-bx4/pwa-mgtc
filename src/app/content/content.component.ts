@@ -40,9 +40,8 @@ export class ContentComponent implements OnInit {
     this.pageBR = s ? "0" : "50%"; 
   }
 
-  spoil(dt:string):boolean {
-    console.log(dt+"<"+(new Date()).toUTCString());
-    return new Date(dt)<new Date();
+  spoil(b:boolean):boolean {
+    return b;
   }
 
   //Program
