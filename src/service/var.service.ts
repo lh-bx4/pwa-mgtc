@@ -395,7 +395,6 @@ export class VarService {
     {src:"../assets/files/prog/csa.jpeg", link:"http://www.csamecanique.com/"},
     {src:"../assets/files/prog/engie.png", link:"https://www.engie.com/"},
     {src:"../assets/files/prog/pumpkin.png", link:"https://pumpkin-app.co/"},
-    {src:"../assets/files/prog/stapem-offshore.png", link:"https://www.stapem-offshore.com/"},
 
   ];
   static menus = [
