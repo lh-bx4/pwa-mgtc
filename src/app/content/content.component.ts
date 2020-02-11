@@ -26,7 +26,7 @@ export class ContentComponent implements OnInit {
   public get MENUS() { return VarService.MENUS; }
 
   getPath(n) {
-    return VarService.FLYERS[n].spoil ? VarService.FLYERS[n].path : "";
+    return spoil(VarService.FLYERS[n].spoil) ? VarService.FLYERS[n].path : "";
   }
 
   howShow(n) { return n==this.current ? 'showc' : 'hidec'; }
@@ -40,8 +40,8 @@ export class ContentComponent implements OnInit {
     this.pageBR = s ? "0" : "50%"; 
   }
 
-  spoil(b) {
-    return b;
+  spoil(dt:string):boolean {
+    return new Date(dt)<new Date();
   }
 
   //Program

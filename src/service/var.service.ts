@@ -399,15 +399,15 @@ export class VarService {
 
   ];
   static menus = [
-    {src:"../assets/files/campaign/Menu-J1.png", spoil:new Date('2020-02-09T06:20:30Z')<new Date()},
-    {src:"../assets/files/campaign/Menu-J3.png", spoil:new Date('2020-02-17T06:20:30Z')<new Date()},
+    {src:"../assets/files/campaign/Menu-J1.png", spoil:'2020-02-09T06:20:30Z'},
+    {src:"../assets/files/campaign/Menu-J3.png", spoil:'2020-02-17T06:20:30Z'},
   ];
 
   static flyers = [
-    {id:0, title:"Jour 1", path:"../../assets/files/campaign/FLYER-MGTC-11.02.pdf", spoil:new Date('2020-02-11T06:20:30Z')<new Date()},
-    {id:1, title:"Jour 2", path:"../../assets/files/campaign/FLYER-MGTC-13.02.pdf", spoil:new Date('2020-02-13T06:20:30Z')<new Date()},
-    {id:2, title:"Jour 3", path:"../../assets/files/campaign/FLYER-MGTC-17.02.pdf", spoil:new Date('2020-02-17T06:20:30Z')<new Date()},
-    {id:3, title:"Jour 4", path:"../../assets/files/campaign/FLYER-MGTC-19.02.pdf", spoil:new Date('2020-02-19T06:20:30Z')<new Date()}
+    {id:0, title:"Jour 1", path:"../../assets/files/campaign/FLYER-MGTC-11.02.pdf", spoil:'2020-02-11T06:20:30Z'},
+    {id:1, title:"Jour 2", path:"../../assets/files/campaign/FLYER-MGTC-13.02.pdf", spoil:'2020-02-13T06:20:30Z'},
+    {id:2, title:"Jour 3", path:"../../assets/files/campaign/FLYER-MGTC-17.02.pdf", spoil:'2020-02-17T06:20:30Z'},
+    {id:3, title:"Jour 4", path:"../../assets/files/campaign/FLYER-MGTC-19.02.pdf", spoil:'2020-02-19T06:20:30Z'}
   ];
   
   static songs = [
@@ -421,10 +421,10 @@ export class VarService {
   ];
   static lyrics = "../../assets/files/campaign/Chansons.pdf"
   static partys = [
-    {name:"Soft 1", date:"11/02/20 19:30", theme:"Jeux Olympique", src:"../../assets/files/party/party_soft_1.png", spoil:new Date('2020-02-11T06:20:30Z')<new Date()},
-    {name:"Hard 1", date:"13/02/20 hh:mm", theme:"Anti'Kitsch", src:"../../assets/files/party/party_hard_1.png", spoil:new Date('2020-02-13T06:20:30Z')<new Date()},
-    {name:"Soft 2", date:"17/02/20 hh:mm", theme:"Jeux Olympique !", src:"../../assets/files/party/party_soft_2.png", spoil:new Date('2020-02-17T06:20:30Z')<new Date()},
-    {name:"Hard 2", date:"19/02/20 hh:mm", theme:"FeRia Antique", src:"../../assets/files/party/party_hard_2.png", spoil:new Date('2020-02-19T06:20:30Z')<new Date()}
+    {name:"Soft 1", date:"11/02/20 19:30", theme:"Jeux Olympique", src:"../../assets/files/party/party_soft_1.png", spoil:'2020-02-11T06:20:30Z'},
+    {name:"Hard 1", date:"13/02/20 hh:mm", theme:"Anti'Kitsch", src:"../../assets/files/party/party_hard_1.png", spoil:'2020-02-13T06:20:30Z'},
+    {name:"Soft 2", date:"17/02/20 hh:mm", theme:"Jeux Olympique !", src:"../../assets/files/party/party_soft_2.png", spoil:'2020-02-17T06:20:30Z'},
+    {name:"Hard 2", date:"19/02/20 hh:mm", theme:"FeRia Antique", src:"../../assets/files/party/party_hard_2.png", spoil:'2020-02-19T06:20:30Z'}
   ];
   // TODO links !
   static links = [
