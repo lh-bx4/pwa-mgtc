@@ -60,6 +60,7 @@
             </li>
         </ul>
         <img *ngIf="false" src="../../assets/icons/ui_secret.png">
+        <a *ngIf="true" class="btn btn-danger" href="../../assets/files/prog/Livre MGTC.pdf" download>🔥🔥🔥 Livre MGTC</a>
         <a *ngIf="true" class="btn btn-danger" href="../../assets/files/prog/Programme.pdf" download>Programme complet</a>
     </div>
 
@@ -108,15 +109,16 @@
         <img [src]="getPartySrc(1)" (click)="onPartyInfo(1)">
         <img [src]="getPartySrc(2)" (click)="onPartyInfo(2)">
         <img [src]="getPartySrc(3)" (click)="onPartyInfo(3)">
+        <img [src]="getPartySrc(3)" (click)="onPartyInfo(4)">
     </div>
 
     <div id="Agenda" [ngClass]="howShow(4)">
         <!-- see https://stackoverflow.com/questions/2269192/use-a-custom-url-to-get-a-customized-printable-version-of-google-calendar-->
-        <iframe *ngIf="false" id="agenda" src="https://calendar.google.com/calendar/embed?src=kvv954969fmevuq0bi8v7dvf1k%40group.calendar.google.com&ctz=Europe%2FParis&mode=week&wkst=7&pbw=false&pda=true&dates=20200210%2F20200221" 
+        <iframe *ngIf="true" id="agenda" src="https://calendar.google.com/calendar/embed?src=kvv954969fmevuq0bi8v7dvf1k%40group.calendar.google.com&ctz=Europe%2FParis&mode=week&wkst=7&pbw=false&pda=true&dates=20200210%2F20200221" 
             width="95%" 
             height="800px" 
             frameborder="4" 
             scrolling="no"></iframe>
-        <img *ngIf="true" src="../../assets/icons/ui_secret.png">
+        <img *ngIf="false" src="../../assets/icons/ui_secret.png">
     </div>
 </div>

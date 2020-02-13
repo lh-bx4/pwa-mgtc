@@ -1,3 +1,10 @@
+Calendrier Ok
+Archery tag Ok
+Livre OK
+Assets ngsw config Ok
+X Livret chanson téléchargeable
+
+
 Ne pas faire les objectifs entre parenthèses.
 
 TOUS
@@ -5,38 +12,38 @@ TOUS
 Remplir le calendrier
 
 ---Soirées
-Programmer les dates du système antispoil
-Mettre la bonne verion des affiches, mettre dans l'ordre les soirées.
+V Programmer les dates du système antispoil
+V Mettre la bonne verion des affiches, mettre dans l'ordre les soirées.
 
 (Billeterie pumpkin pro)
 (Changer le nom de la catégorie et ajouter les Evennement ? (ex Arcery Tag...))
 
 --- Campagne
-Regler les dates de l'antispoil Flyer
-Mettre les vidéo pour les musiques
+V Regler les dates de l'antispoil Flyer
+X Mettre les vidéo pour les musiques
 Mettre le lien du document téléchargeable avec les parole de chansons.
-Ajouter la vidéo de coré
+X Ajouter la vidéo de coré
 
 ---Programme
->Faire un peu comme le bot au niveau des infos accessible. 1 description, un point important + photo + vidéo
+V Faire un peu comme le bot au niveau des infos accessible. 1 description, un point important + photo + vidéo
 section +, a retenir ...
-Ajouter le livret complet du programme
+V Ajouter le livret complet du programme
 
 ---Team
->Paragraphe de liste ! voir celui bureau dans le resumé de programme
->Réduire la qualité de la photo
-*Ajouter photos perso
-*Regler les problème de responsivité
->Vos descriptions perso !!!
+V Paragraphe de liste ! voir celui bureau dans le resumé de programme
+V Réduire la qualité de la photo
+V Ajouter photos perso
+V Regler les problème de responsivité
+V Vos descriptions perso !!!
 
 ---Service Worker
 X Online indicator
 
 ---Liens
-Mettre les bons liens
+V Mettre les bons liens
 
 ------Forum
-Quelqu'un veut le faire, c'est pas trop compliqué ?
+V Quelqu'un veut le faire, c'est pas trop compliqué ?
 
 
 private gcode = "55563728161231470";

@@ -72,7 +72,7 @@ export class ContentComponent implements OnInit {
   onPartyInfo(n:number) {
     let str = "";
     str = VarService.PARTYS[n].spoil ? 
-    "Soirée"+VarService.PARTYS[n].name+"\n Date : "+VarService.PARTYS[n].date+"\n Thème : "+VarService.PARTYS[n].theme :
+    "Evénemment : "+VarService.PARTYS[n].name+"\n Date : "+VarService.PARTYS[n].date+"\n Thème : "+VarService.PARTYS[n].theme :
     "Secret !";
     alert(str);
   }
