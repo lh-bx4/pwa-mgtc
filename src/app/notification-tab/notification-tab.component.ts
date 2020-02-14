@@ -31,7 +31,12 @@ export class NotificationTabComponent implements OnInit {
 
   onDropdown() {
     this.pane=!this.pane;
+    //var trueH=$("#contentbox").css('height');
+    //alert(trueH);
+    
+    this.paneH = this.pane ? "auto" : "0px";
     this.paneH = (this.pane ? VarService.SCRH-VarService.NTH : 0).toString()+"px";
+    //this.paneH = (this.pane ? Math.max(VarService.SCRH-VarService.NTH, trueH) : 0).toString()+"px";
     this.paneBR = this.pane ? "0%" : "50%";
   }
 
