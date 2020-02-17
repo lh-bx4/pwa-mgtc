@@ -29,11 +29,15 @@ export class ContentComponent implements OnInit {
     return this.spoil(VarService.FLYERS[n].spoil) ? VarService.FLYERS[n].path : "";
   }
 
-  howShow(n) { return n==this.current ? 'showc' : 'hidec'; }
+  howShow(n) { 
+    
+    return n==this.current ? 'showc' : 'hidec'; 
+  }
   getTransitionDelay() { return (this.shown ? 0.5 : 0).toString()+"s"; }
   public getH() { return (this.shown ? VarService.PH+1 : 0).toString()+"px"; }
   
   public onPrepare(s:boolean, n:number, c:string) {
+    document.getElementById("page").scrollTop=0;
     this.shown=s;
     this.clr=c;
     this.current=n;
