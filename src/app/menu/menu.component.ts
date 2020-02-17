@@ -40,6 +40,7 @@ export class MenuComponent implements OnInit {
     MenuComponent.OneIsSelected=!MenuComponent.OneIsSelected;
     this.isSelected=!this.isSelected;
     MenuComponent.cntnt.onPrepare(MenuComponent.OneIsSelected, this.isSelected ? this.menuid : -1, VarService.getMCLR(this.menuid, "DD"));
+    document.getElementById("page").scrollTop=0;
   }
 
   constructor() { }
